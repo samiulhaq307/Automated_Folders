@@ -74,236 +74,236 @@ def generate_monthly_budget_folders(year):
         tradingReceiptsFolder = create_bank_receipts_folder(Constants.TRADING, month, year)
 
         # Creating Allied Bank Receipt Folders
-        aBCreditCardEStatementFolder = create_named_subfolder("AB Credit Card E Statement", abbreviated_month, year)
-        aBCreditReceiptFolder = create_named_subfolder("AB Credit Receipt", abbreviated_month, year)
-        aBDebitCardEStatementFolder = create_named_subfolder("AB Debit Card E Statement", abbreviated_month, year)
-        aBDebitReceiptFolder = create_named_subfolder("AB Debit Receipt", abbreviated_month, year)
+        aBCreditCardEStatementFolder = create_named_subfolder(f"{Constants.ALLIED_BANK_ABBREVIATION} {Constants.CREDIT} {Constants.CARD} {Constants.E_STATEMENT}", abbreviated_month, year)
+        aBCreditReceiptFolder = create_named_subfolder(f"{Constants.ALLIED_BANK_ABBREVIATION} {Constants.CREDIT} {Constants.RECEIPT}", abbreviated_month, year)
+        aBDebitCardEStatementFolder = create_named_subfolder(f"{Constants.ALLIED_BANK_ABBREVIATION} {Constants.DEBIT} {Constants.CARD} {Constants.E_STATEMENT}", abbreviated_month, year)
+        aBDebitReceiptFolder = create_named_subfolder(f"{Constants.ALLIED_BANK_ABBREVIATION} {Constants.DEBIT} {Constants.RECEIPT}", abbreviated_month, year)
 
         # Creating Allied Bank Credit Receipts Folder
-        aBCreditAppTransactionFolder = create_named_subfolder("AB Credit App Transaction", abbreviated_month, year)
-        aBCreditCardTransactionFolder = create_named_subfolder("AB Credit Card Transaction", abbreviated_month, year)
-        aBCreditCashTransactionFolder = create_named_subfolder("AB Credit Cash Transaction", abbreviated_month, year)
+        aBCreditAppTransactionFolder = create_named_subfolder(f"{Constants.ALLIED_BANK_ABBREVIATION} {Constants.CREDIT} {Constants.APP} {Constants.TRANSACTION}", abbreviated_month, year)
+        aBCreditCardTransactionFolder = create_named_subfolder(f"{Constants.ALLIED_BANK_ABBREVIATION} {Constants.CREDIT} {Constants.CARD} {Constants.TRANSACTION}", abbreviated_month, year)
+        aBCreditCashTransactionFolder = create_named_subfolder(f"{Constants.ALLIED_BANK_ABBREVIATION} {Constants.CREDIT} {Constants.CASH} {Constants.TRANSACTION}", abbreviated_month, year)
 
         # Creating Allied Bank Debit Receipts Folder
-        aBDebitAppTransactionFolder = create_named_subfolder("AB Debit App Transaction", abbreviated_month, year)
-        aBDebitCardTransactionFolder = create_named_subfolder("AB Debit Card Transaction", abbreviated_month, year)
-        aBDebitCashTransactionFolder = create_named_subfolder("AB Debit Cash Transaction", abbreviated_month, year)
+        aBDebitAppTransactionFolder = create_named_subfolder(f"{Constants.ALLIED_BANK_ABBREVIATION} {Constants.DEBIT} {Constants.APP} {Constants.TRANSACTION}", abbreviated_month, year)
+        aBDebitCardTransactionFolder = create_named_subfolder(f"{Constants.ALLIED_BANK_ABBREVIATION} {Constants.DEBIT} {Constants.CARD} {Constants.TRANSACTION}", abbreviated_month, year)
+        aBDebitCashTransactionFolder = create_named_subfolder(f"{Constants.ALLIED_BANK_ABBREVIATION} {Constants.DEBIT} {Constants.CASH} {Constants.TRANSACTION}", abbreviated_month, year)
 
 
         # Creating Bank Alfalah Receipt Folders
-        bACreditCardEStatementFolder = create_named_subfolder("BA Credit Card E Statement", abbreviated_month, year)
-        bACreditReceiptFolder = create_named_subfolder("BA Credit Receipt", abbreviated_month, year)
-        bADebitCardEStatementFolder = create_named_subfolder("BA Debit Card E Statement", abbreviated_month, year)
-        bADebitReceiptFolder = create_named_subfolder("BA Debit Receipt", abbreviated_month, year)
-        bAOrbitStatementFolder = create_named_subfolder("BA Orbit Statement", abbreviated_month, year)
+        bACreditCardEStatementFolder = create_named_subfolder(f"{Constants.BANK_ALFALAH_ABBREVIATION} {Constants.CREDIT} {Constants.CARD} {Constants.E_STATEMENT}", abbreviated_month, year)
+        bACreditReceiptFolder = create_named_subfolder(f"{Constants.BANK_ALFALAH_ABBREVIATION} {Constants.CREDIT} {Constants.RECEIPT}", abbreviated_month, year)
+        bADebitCardEStatementFolder = create_named_subfolder(f"{Constants.BANK_ALFALAH_ABBREVIATION} {Constants.DEBIT} {Constants.CARD} {Constants.E_STATEMENT}", abbreviated_month, year)
+        bADebitReceiptFolder = create_named_subfolder(f"{Constants.BANK_ALFALAH_ABBREVIATION} {Constants.DEBIT} {Constants.RECEIPT}", abbreviated_month, year)
+        bAOrbitStatementFolder = create_named_subfolder(f"{Constants.BANK_ALFALAH_ABBREVIATION} {Constants.ORBIT} {Constants.STATEMENT}", abbreviated_month, year)
 
         # Creating Bank Alfalah Credit Receipts Folder
-        bACreditAppTransactionFolder = create_named_subfolder("BA Credit App Transaction", abbreviated_month, year)
-        bACreditCardTransactionFolder = create_named_subfolder("BA Credit Card Transaction", abbreviated_month, year)
-        bACreditCashTransactionFolder = create_named_subfolder("BA Credit Cash Transaction", abbreviated_month, year)
+        bACreditAppTransactionFolder = create_named_subfolder(f"{Constants.BANK_ALFALAH_ABBREVIATION} {Constants.CREDIT} {Constants.APP} {Constants.TRANSACTION}", abbreviated_month, year)
+        bACreditCardTransactionFolder = create_named_subfolder(f"{Constants.BANK_ALFALAH_ABBREVIATION} {Constants.CREDIT} {Constants.CARD} {Constants.TRANSACTION}", abbreviated_month, year)
+        bACreditCashTransactionFolder = create_named_subfolder(f"{Constants.BANK_ALFALAH_ABBREVIATION} {Constants.CREDIT} {Constants.CASH} {Constants.TRANSACTION}", abbreviated_month, year)
 
         # Creating Bank Alfalah Debit Receipts Folder
-        bADebitAppTransactionFolder = create_named_subfolder("BA Debit App Transaction", abbreviated_month, year)
-        bADebitCardTransactionFolder = create_named_subfolder("BA Debit Card Transaction", abbreviated_month, year)
-        bADebitCashTransactionFolder = create_named_subfolder("BA Debit Cash Transaction", abbreviated_month, year)
+        bADebitAppTransactionFolder = create_named_subfolder(f"{Constants.BANK_ALFALAH_ABBREVIATION} {Constants.DEBIT} {Constants.APP} {Constants.TRANSACTION}", abbreviated_month, year)
+        bADebitCardTransactionFolder = create_named_subfolder(f"{Constants.BANK_ALFALAH_ABBREVIATION} {Constants.DEBIT} {Constants.CARD} {Constants.TRANSACTION}", abbreviated_month, year)
+        bADebitCashTransactionFolder = create_named_subfolder(f"{Constants.BANK_ALFALAH_ABBREVIATION} {Constants.DEBIT} {Constants.CASH} {Constants.TRANSACTION}", abbreviated_month, year)
 
 
         # Creating EasyPaissa Receipt Folder
-        ePCreditCardEStatementFolder = create_named_subfolder("EP Credit Card E Statement", abbreviated_month, year)
-        ePCreditReceiptFolder = create_named_subfolder("EP Credit Receipt", abbreviated_month, year)
-        ePDebitCardEStatementFolder = create_named_subfolder("EP Debit Card E Statement", abbreviated_month, year)
-        ePDebitReceiptFolder = create_named_subfolder("EP Debit Receipt", abbreviated_month, year)
+        ePCreditCardEStatementFolder = create_named_subfolder(f"{Constants.EASY_PAISSA_ABBREVIATION} {Constants.CREDIT} {Constants.CARD} {Constants.E_STATEMENT}", abbreviated_month, year)
+        ePCreditReceiptFolder = create_named_subfolder(f"{Constants.EASY_PAISSA_ABBREVIATION} {Constants.CREDIT} {Constants.RECEIPT}", abbreviated_month, year)
+        ePDebitCardEStatementFolder = create_named_subfolder(f"{Constants.EASY_PAISSA_ABBREVIATION} {Constants.DEBIT} {Constants.CARD} {Constants.E_STATEMENT}", abbreviated_month, year)
+        ePDebitReceiptFolder = create_named_subfolder(f"{Constants.EASY_PAISSA_ABBREVIATION} {Constants.DEBIT} {Constants.RECEIPT}", abbreviated_month, year)
 
         # Creating EasyPaissa Credit Receipts Folder
-        ePCreditAppTransactionFolder = create_named_subfolder("EP Credit App Transaction", abbreviated_month, year)
-        ePCreditCardTransactionFolder = create_named_subfolder("EP Credit Card Transaction", abbreviated_month, year)
-        ePCreditCashTransactionFolder = create_named_subfolder("EP Credit Cash Transaction", abbreviated_month, year)
+        ePCreditAppTransactionFolder = create_named_subfolder(f"{Constants.EASY_PAISSA_ABBREVIATION} {Constants.CREDIT} {Constants.APP} {Constants.TRANSACTION}", abbreviated_month, year)
+        ePCreditCardTransactionFolder = create_named_subfolder(f"{Constants.EASY_PAISSA_ABBREVIATION} {Constants.CREDIT} {Constants.CARD} {Constants.TRANSACTION}", abbreviated_month, year)
+        ePCreditCashTransactionFolder = create_named_subfolder(f"{Constants.EASY_PAISSA_ABBREVIATION} {Constants.CREDIT} {Constants.CASH} {Constants.TRANSACTION}", abbreviated_month, year)
 
         # Creating EasyPaissa Debit Receipts Folder
-        ePDebitAppTransactionFolder = create_named_subfolder("EP Debit App Transaction", abbreviated_month, year)
-        ePDebitCardTransactionFolder = create_named_subfolder("EP Debit Card Transaction", abbreviated_month, year)
-        ePDebitCashTransactionFolder = create_named_subfolder("EP Debit Cash Transaction", abbreviated_month, year)
+        ePDebitAppTransactionFolder = create_named_subfolder(f"{Constants.EASY_PAISSA_ABBREVIATION} {Constants.DEBIT} {Constants.APP} {Constants.TRANSACTION}", abbreviated_month, year)
+        ePDebitCardTransactionFolder = create_named_subfolder(f"{Constants.EASY_PAISSA_ABBREVIATION} {Constants.DEBIT} {Constants.CARD} {Constants.TRANSACTION}", abbreviated_month, year)
+        ePDebitCashTransactionFolder = create_named_subfolder(f"{Constants.EASY_PAISSA_ABBREVIATION} {Constants.DEBIT} {Constants.CASH} {Constants.TRANSACTION}", abbreviated_month, year)
 
 
         # Creating FirstPay Receipt Folder
-        fPCreditCardEStatementFolder = create_named_subfolder("FP Credit Card E Statement", abbreviated_month, year)
-        fPCreditReceiptFolder = create_named_subfolder("FP Credit Receipt", abbreviated_month, year)
-        fPDebitCardEStatementFolder = create_named_subfolder("FP Debit Card E Statement", abbreviated_month, year)
-        fPDebitReceiptFolder = create_named_subfolder("FP Debit Receipt", abbreviated_month, year)
+        fPCreditCardEStatementFolder = create_named_subfolder(f"{Constants.FIRST_PAY_ABBREVIATION} {Constants.CREDIT} {Constants.CARD} {Constants.E_STATEMENT}", abbreviated_month, year)
+        fPCreditReceiptFolder = create_named_subfolder(f"{Constants.FIRST_PAY_ABBREVIATION} {Constants.CREDIT} {Constants.RECEIPT}", abbreviated_month, year)
+        fPDebitCardEStatementFolder = create_named_subfolder(f"{Constants.FIRST_PAY_ABBREVIATION} {Constants.DEBIT} {Constants.CARD} {Constants.E_STATEMENT}", abbreviated_month, year)
+        fPDebitReceiptFolder = create_named_subfolder(f"{Constants.FIRST_PAY_ABBREVIATION} {Constants.DEBIT} {Constants.RECEIPT}", abbreviated_month, year)
 
         # Creating FirstPay Credit Receipts Folder
-        fPCreditAppTransactionFolder = create_named_subfolder("FP Credit App Transaction", abbreviated_month, year)
-        fPCreditCardTransactionFolder = create_named_subfolder("FP Credit Card Transaction", abbreviated_month, year)
-        fPCreditCashTransactionFolder = create_named_subfolder("FP Credit Cash Transaction", abbreviated_month, year)
+        fPCreditAppTransactionFolder = create_named_subfolder(f"{Constants.FIRST_PAY_ABBREVIATION} {Constants.CREDIT} {Constants.APP} {Constants.TRANSACTION}", abbreviated_month, year)
+        fPCreditCardTransactionFolder = create_named_subfolder(f"{Constants.FIRST_PAY_ABBREVIATION} {Constants.CREDIT} {Constants.CARD} {Constants.TRANSACTION}", abbreviated_month, year)
+        fPCreditCashTransactionFolder = create_named_subfolder(f"{Constants.FIRST_PAY_ABBREVIATION} {Constants.CREDIT} {Constants.CASH} {Constants.TRANSACTION}", abbreviated_month, year)
 
         # Creating FirstPay Debit Receipts Folder
-        fPDebitAppTransactionFolder = create_named_subfolder("FP Debit App Transaction", abbreviated_month, year)
-        fPDebitCardTransactionFolder = create_named_subfolder("FP Debit Card Transaction", abbreviated_month, year)
-        fPDebitCashTransactionFolder = create_named_subfolder("FP Debit Cash Transaction", abbreviated_month, year)
+        fPDebitAppTransactionFolder = create_named_subfolder(f"{Constants.FIRST_PAY_ABBREVIATION} {Constants.DEBIT} {Constants.APP} {Constants.TRANSACTION}", abbreviated_month, year)
+        fPDebitCardTransactionFolder = create_named_subfolder(f"{Constants.FIRST_PAY_ABBREVIATION} {Constants.DEBIT} {Constants.CARD} {Constants.TRANSACTION}", abbreviated_month, year)
+        fPDebitCashTransactionFolder = create_named_subfolder(f"{Constants.FIRST_PAY_ABBREVIATION} {Constants.DEBIT} {Constants.CASH} {Constants.TRANSACTION}", abbreviated_month, year)
 
 
         # Creating JazzCash Receipt Folder
-        jCCreditCardEStatementFolder = create_named_subfolder("JC Credit Card E Statement", abbreviated_month, year)
-        jCCreditReceiptFolder = create_named_subfolder("JC Credit Receipt", abbreviated_month, year)
-        jCDebitCardEStatementFolder = create_named_subfolder("JC Debit Card E Statement", abbreviated_month, year)
-        jCDebitReceiptFolder = create_named_subfolder("JC Debit Receipt", abbreviated_month, year)
+        jCCreditCardEStatementFolder = create_named_subfolder(f"{Constants.JAZZ_CASH_ABBREVIATION} {Constants.CREDIT} {Constants.CARD} {Constants.E_STATEMENT}", abbreviated_month, year)
+        jCCreditReceiptFolder = create_named_subfolder(f"{Constants.JAZZ_CASH_ABBREVIATION} {Constants.CREDIT} {Constants.RECEIPT}", abbreviated_month, year)
+        jCDebitCardEStatementFolder = create_named_subfolder(f"{Constants.JAZZ_CASH_ABBREVIATION} {Constants.DEBIT} {Constants.CARD} {Constants.E_STATEMENT}", abbreviated_month, year)
+        jCDebitReceiptFolder = create_named_subfolder(f"{Constants.JAZZ_CASH_ABBREVIATION} {Constants.DEBIT} {Constants.RECEIPT}", abbreviated_month, year)
 
         # Creating JazzCash Credit Receipts Folder
-        jCCreditAppTransactionFolder = create_named_subfolder("JC Credit App Transaction", abbreviated_month, year)
-        jCCreditCardTransactionFolder = create_named_subfolder("JC Credit Card Transaction", abbreviated_month, year)
-        jCCreditCashTransactionFolder = create_named_subfolder("JC Credit Cash Transaction", abbreviated_month, year)
+        jCCreditAppTransactionFolder = create_named_subfolder(f"{Constants.JAZZ_CASH_ABBREVIATION} {Constants.CREDIT} {Constants.APP} {Constants.TRANSACTION}", abbreviated_month, year)
+        jCCreditCardTransactionFolder = create_named_subfolder(f"{Constants.JAZZ_CASH_ABBREVIATION} {Constants.CREDIT} {Constants.CARD} {Constants.TRANSACTION}", abbreviated_month, year)
+        jCCreditCashTransactionFolder = create_named_subfolder(f"{Constants.JAZZ_CASH_ABBREVIATION} {Constants.CREDIT} {Constants.CASH} {Constants.TRANSACTION}", abbreviated_month, year)
 
         # Creating JazzCash Debit Receipts Folder
-        jCDebitAppTransactionFolder = create_named_subfolder("JC Debit App Transaction", abbreviated_month, year)
-        jCDebitCardTransactionFolder = create_named_subfolder("JC Debit Card Transaction", abbreviated_month, year)
-        jCDebitCashTransactionFolder = create_named_subfolder("JC Debit Cash Transaction", abbreviated_month, year)
+        jCDebitAppTransactionFolder = create_named_subfolder(f"{Constants.JAZZ_CASH_ABBREVIATION} {Constants.DEBIT} {Constants.APP} {Constants.TRANSACTION}", abbreviated_month, year)
+        jCDebitCardTransactionFolder = create_named_subfolder(f"{Constants.JAZZ_CASH_ABBREVIATION} {Constants.DEBIT} {Constants.CARD} {Constants.TRANSACTION}", abbreviated_month, year)
+        jCDebitCashTransactionFolder = create_named_subfolder(f"{Constants.JAZZ_CASH_ABBREVIATION} {Constants.DEBIT} {Constants.CASH} {Constants.TRANSACTION}", abbreviated_month, year)
 
 
         # Creating Mashreq Receipt Folder
-        mQCreditCardEStatementFolder = create_named_subfolder("MQ Credit Card E Statement", abbreviated_month, year)
-        mQCreditReceiptFolder = create_named_subfolder("MQ Credit Receipt", abbreviated_month, year)
-        mQDebitCardEStatementFolder = create_named_subfolder("MQ Debit Card E Statement", abbreviated_month, year)
-        mQDebitReceiptFolder = create_named_subfolder("MQ Debit Receipt", abbreviated_month, year)
+        mQCreditCardEStatementFolder = create_named_subfolder(f"{Constants.MASHREQ_BANK_ABBREVIATION} {Constants.CREDIT} {Constants.CARD} {Constants.E_STATEMENT}", abbreviated_month, year)
+        mQCreditReceiptFolder = create_named_subfolder(f"{Constants.MASHREQ_BANK_ABBREVIATION} {Constants.CREDIT} {Constants.RECEIPT}", abbreviated_month, year)
+        mQDebitCardEStatementFolder = create_named_subfolder(f"{Constants.MASHREQ_BANK_ABBREVIATION} {Constants.DEBIT} {Constants.CARD} {Constants.E_STATEMENT}", abbreviated_month, year)
+        mQDebitReceiptFolder = create_named_subfolder(f"{Constants.MASHREQ_BANK_ABBREVIATION} {Constants.DEBIT} {Constants.RECEIPT}", abbreviated_month, year)
 
         # Creating Mashreq Credit Receipts Folder
-        mQCreditAppTransactionFolder = create_named_subfolder("MQ Credit App Transaction", abbreviated_month, year)
-        mQCreditCardTransactionFolder = create_named_subfolder("MQ Credit Card Transaction", abbreviated_month, year)
-        mQCreditCashTransactionFolder = create_named_subfolder("MQ Credit Cash Transaction", abbreviated_month, year)
+        mQCreditAppTransactionFolder = create_named_subfolder(f"{Constants.MASHREQ_BANK_ABBREVIATION} {Constants.CREDIT} {Constants.APP} {Constants.TRANSACTION}", abbreviated_month, year)
+        mQCreditCardTransactionFolder = create_named_subfolder(f"{Constants.MASHREQ_BANK_ABBREVIATION} {Constants.CREDIT} {Constants.CARD} {Constants.TRANSACTION}", abbreviated_month, year)
+        mQCreditCashTransactionFolder = create_named_subfolder(f"{Constants.MASHREQ_BANK_ABBREVIATION} {Constants.CREDIT} {Constants.CASH} {Constants.TRANSACTION}", abbreviated_month, year)
 
         # Creating Mashreq Debit Receipts Folder
-        mQDebitAppTransactionFolder = create_named_subfolder("MQ Debit App Transaction", abbreviated_month, year)
-        mQDebitCardTransactionFolder = create_named_subfolder("MQ Debit Card Transaction", abbreviated_month, year)
-        mQDebitCashTransactionFolder = create_named_subfolder("MQ Debit Cash Transaction", abbreviated_month, year)
+        mQDebitAppTransactionFolder = create_named_subfolder(f"{Constants.MASHREQ_BANK_ABBREVIATION} {Constants.DEBIT} {Constants.APP} {Constants.TRANSACTION}", abbreviated_month, year)
+        mQDebitCardTransactionFolder = create_named_subfolder(f"{Constants.MASHREQ_BANK_ABBREVIATION} {Constants.DEBIT} {Constants.CARD} {Constants.TRANSACTION}", abbreviated_month, year)
+        mQDebitCashTransactionFolder = create_named_subfolder(f"{Constants.MASHREQ_BANK_ABBREVIATION} {Constants.DEBIT} {Constants.CASH} {Constants.TRANSACTION}", abbreviated_month, year)
 
 
         # Creating Meezan Bank Receipt Folder
-        mBCreditCardEStatementFolder = create_named_subfolder("MB Credit Card E Statement", abbreviated_month, year)
-        mBCreditReceiptFolder = create_named_subfolder("MB Credit Receipt", abbreviated_month, year)
-        mBDebitCardEStatementFolder = create_named_subfolder("MB Debit Card E Statement", abbreviated_month, year)
-        mBDebitReceiptFolder = create_named_subfolder("MB Debit Receipt", abbreviated_month, year)
+        mBCreditCardEStatementFolder = create_named_subfolder(f"{Constants.MEEZAN_BANK_ABBREVIATION} {Constants.CREDIT} {Constants.CARD} {Constants.E_STATEMENT}", abbreviated_month, year)
+        mBCreditReceiptFolder = create_named_subfolder(f"{Constants.MEEZAN_BANK_ABBREVIATION} {Constants.CREDIT} {Constants.RECEIPT}", abbreviated_month, year)
+        mBDebitCardEStatementFolder = create_named_subfolder(f"{Constants.MEEZAN_BANK_ABBREVIATION} {Constants.DEBIT} {Constants.CARD} {Constants.E_STATEMENT}", abbreviated_month, year)
+        mBDebitReceiptFolder = create_named_subfolder(f"{Constants.MEEZAN_BANK_ABBREVIATION} {Constants.DEBIT} {Constants.RECEIPT}", abbreviated_month, year)
 
         # Creating Meezan Bank Credit Receipts Folder
-        mBCreditAppTransactionFolder = create_named_subfolder("MB Credit App Transaction", abbreviated_month, year)
-        mBCreditCardTransactionFolder = create_named_subfolder("MB Credit Card Transaction", abbreviated_month, year)
-        mBCreditCashTransactionFolder = create_named_subfolder("MB Credit Cash Transaction", abbreviated_month, year)
+        mBCreditAppTransactionFolder = create_named_subfolder(f"{Constants.MEEZAN_BANK_ABBREVIATION} {Constants.CREDIT} {Constants.APP} {Constants.TRANSACTION}", abbreviated_month, year)
+        mBCreditCardTransactionFolder = create_named_subfolder(f"{Constants.MEEZAN_BANK_ABBREVIATION} {Constants.CREDIT} {Constants.CARD} {Constants.TRANSACTION}", abbreviated_month, year)
+        mBCreditCashTransactionFolder = create_named_subfolder(f"{Constants.MEEZAN_BANK_ABBREVIATION} {Constants.CREDIT} {Constants.CASH} {Constants.TRANSACTION}", abbreviated_month, year)
 
         # Creating Meezan Bank Debit Receipts Folder
-        mBDebitAppTransactionFolder = create_named_subfolder("MB Debit App Transaction", abbreviated_month, year)
-        mBDebitCardTransactionFolder = create_named_subfolder("MB Debit Card Transaction", abbreviated_month, year)
-        mBDebitCashTransactionFolder = create_named_subfolder("MB Debit Cash Transaction", abbreviated_month, year)
+        mBDebitAppTransactionFolder = create_named_subfolder(f"{Constants.MEEZAN_BANK_ABBREVIATION} {Constants.DEBIT} {Constants.APP} {Constants.TRANSACTION}", abbreviated_month, year)
+        mBDebitCardTransactionFolder = create_named_subfolder(f"{Constants.MEEZAN_BANK_ABBREVIATION} {Constants.DEBIT} {Constants.CARD} {Constants.TRANSACTION}", abbreviated_month, year)
+        mBDebitCashTransactionFolder = create_named_subfolder(f"{Constants.MEEZAN_BANK_ABBREVIATION} {Constants.DEBIT} {Constants.CASH} {Constants.TRANSACTION}", abbreviated_month, year)
 
 
         # Creating NayaPay Receipt Folder
-        nPCreditCardEStatementFolder = create_named_subfolder("NP Credit Card E Statement", abbreviated_month, year)
-        nPCreditReceiptFolder = create_named_subfolder("NP Credit Receipt", abbreviated_month, year)
-        nPDebitCardEStatementFolder = create_named_subfolder("NP Debit Card E Statement", abbreviated_month, year)
-        nPDebitReceiptFolder = create_named_subfolder("NP Debit Receipt", abbreviated_month, year)
+        nPCreditCardEStatementFolder = create_named_subfolder(f"{Constants.NAYA_PAY_ABBREVIATION} {Constants.CREDIT} {Constants.CARD} {Constants.E_STATEMENT}", abbreviated_month, year)
+        nPCreditReceiptFolder = create_named_subfolder(f"{Constants.NAYA_PAY_ABBREVIATION} {Constants.CREDIT} {Constants.RECEIPT}", abbreviated_month, year)
+        nPDebitCardEStatementFolder = create_named_subfolder(f"{Constants.NAYA_PAY_ABBREVIATION} {Constants.DEBIT} {Constants.CARD} {Constants.E_STATEMENT}", abbreviated_month, year)
+        nPDebitReceiptFolder = create_named_subfolder(f"{Constants.NAYA_PAY_ABBREVIATION} {Constants.DEBIT} {Constants.RECEIPT}", abbreviated_month, year)
 
         # Creating NayaPay Credit Receipts Folder
-        nPCreditAppTransactionFolder = create_named_subfolder("NP Credit App Transaction", abbreviated_month, year)
-        nPCreditCardTransactionFolder = create_named_subfolder("NP Credit Card Transaction", abbreviated_month, year)
-        nPCreditCashTransactionFolder = create_named_subfolder("NP Credit Cash Transaction", abbreviated_month, year)
+        nPCreditAppTransactionFolder = create_named_subfolder(f"{Constants.NAYA_PAY_ABBREVIATION} {Constants.CREDIT} {Constants.APP} {Constants.TRANSACTION}", abbreviated_month, year)
+        nPCreditCardTransactionFolder = create_named_subfolder(f"{Constants.NAYA_PAY_ABBREVIATION} {Constants.CREDIT} {Constants.CARD} {Constants.TRANSACTION}", abbreviated_month, year)
+        nPCreditCashTransactionFolder = create_named_subfolder(f"{Constants.NAYA_PAY_ABBREVIATION} {Constants.CREDIT} {Constants.CASH} {Constants.TRANSACTION}", abbreviated_month, year)
 
         # Creating NayaPay Debit Receipts Folder
-        nPDebitAppTransactionFolder = create_named_subfolder("NP Debit App Transaction", abbreviated_month, year)
-        nPDebitCardTransactionFolder = create_named_subfolder("NP Debit Card Transaction", abbreviated_month, year)
-        nPDebitCashTransactionFolder = create_named_subfolder("NP Debit Cash Transaction", abbreviated_month, year)
+        nPDebitAppTransactionFolder = create_named_subfolder(f"{Constants.NAYA_PAY_ABBREVIATION} {Constants.DEBIT} {Constants.APP} {Constants.TRANSACTION}", abbreviated_month, year)
+        nPDebitCardTransactionFolder = create_named_subfolder(f"{Constants.NAYA_PAY_ABBREVIATION} {Constants.DEBIT} {Constants.CARD} {Constants.TRANSACTION}", abbreviated_month, year)
+        nPDebitCashTransactionFolder = create_named_subfolder(f"{Constants.NAYA_PAY_ABBREVIATION} {Constants.DEBIT} {Constants.CASH} {Constants.TRANSACTION}", abbreviated_month, year)
 
 
         # Creating SadaPay Receipt Folder
-        sPCreditCardEStatementFolder = create_named_subfolder("SP Credit Card E Statement", abbreviated_month, year)
-        sPCreditReceiptFolder = create_named_subfolder("SP Credit Receipt", abbreviated_month, year)
-        sPDebitCardEStatementFolder = create_named_subfolder("SP Debit Card E Statement", abbreviated_month, year)
-        sPDebitReceiptFolder = create_named_subfolder("SP Debit Receipt", abbreviated_month, year)
+        sPCreditCardEStatementFolder = create_named_subfolder(f"{Constants.SADA_PAY_ABBREVIATION} {Constants.CREDIT} {Constants.CARD} {Constants.E_STATEMENT}", abbreviated_month, year)
+        sPCreditReceiptFolder = create_named_subfolder(f"{Constants.SADA_PAY_ABBREVIATION} {Constants.CREDIT} {Constants.RECEIPT}", abbreviated_month, year)
+        sPDebitCardEStatementFolder = create_named_subfolder(f"{Constants.SADA_PAY_ABBREVIATION} {Constants.DEBIT} {Constants.CARD} {Constants.E_STATEMENT}", abbreviated_month, year)
+        sPDebitReceiptFolder = create_named_subfolder(f"{Constants.SADA_PAY_ABBREVIATION} {Constants.DEBIT} {Constants.RECEIPT}", abbreviated_month, year)
 
         # Creating SadaPay Credit Receipts Folder
-        sPCreditAppTransactionFolder = create_named_subfolder("SP Credit App Transaction", abbreviated_month, year)
-        sPCreditCardTransactionFolder = create_named_subfolder("SP Credit Card Transaction", abbreviated_month, year)
-        sPCreditCashTransactionFolder = create_named_subfolder("SP Credit Cash Transaction", abbreviated_month, year)
+        sPCreditAppTransactionFolder = create_named_subfolder(f"{Constants.SADA_PAY_ABBREVIATION} {Constants.CREDIT} {Constants.APP} {Constants.TRANSACTION}", abbreviated_month, year)
+        sPCreditCardTransactionFolder = create_named_subfolder(f"{Constants.SADA_PAY_ABBREVIATION} {Constants.CREDIT} {Constants.CARD} {Constants.TRANSACTION}", abbreviated_month, year)
+        sPCreditCashTransactionFolder = create_named_subfolder(f"{Constants.SADA_PAY_ABBREVIATION} {Constants.CREDIT} {Constants.CASH} {Constants.TRANSACTION}", abbreviated_month, year)
 
         # Creating SadaPay Debit Receipts Folder
-        sPDebitAppTransactionFolder = create_named_subfolder("SP Debit App Transaction", abbreviated_month, year)
-        sPDebitCardTransactionFolder = create_named_subfolder("SP Debit Card Transaction", abbreviated_month, year)
-        sPDebitCashTransactionFolder = create_named_subfolder("SP Debit Cash Transaction", abbreviated_month, year)
+        sPDebitAppTransactionFolder = create_named_subfolder(f"{Constants.SADA_PAY_ABBREVIATION} {Constants.DEBIT} {Constants.APP} {Constants.TRANSACTION}", abbreviated_month, year)
+        sPDebitCardTransactionFolder = create_named_subfolder(f"{Constants.SADA_PAY_ABBREVIATION} {Constants.DEBIT} {Constants.CARD} {Constants.TRANSACTION}", abbreviated_month, year)
+        sPDebitCashTransactionFolder = create_named_subfolder(f"{Constants.SADA_PAY_ABBREVIATION} {Constants.DEBIT} {Constants.CASH} {Constants.TRANSACTION}", abbreviated_month, year)
 
 
         # Creating Standard Chartered Bank Receipt Folders
-        sCBCreditCardEStatementFolder = create_named_subfolder("SCB Credit Card E Statement", abbreviated_month, year)
-        sCBCreditReceiptFolder = create_named_subfolder("SCB Credit Receipt", abbreviated_month, year)
-        sCBDebitCardEStatementFolder = create_named_subfolder("SCB Debit Card E Statement", abbreviated_month, year)
-        sCBDebitReceiptFolder = create_named_subfolder("SCB Debit Receipt", abbreviated_month, year)
+        sCBCreditCardEStatementFolder = create_named_subfolder(f"{Constants.STANDARD_CHARTERED_BANK_ABBREVIATION} {Constants.CREDIT} {Constants.CARD} {Constants.E_STATEMENT}", abbreviated_month, year)
+        sCBCreditReceiptFolder = create_named_subfolder(f"{Constants.STANDARD_CHARTERED_BANK_ABBREVIATION} {Constants.CREDIT} {Constants.RECEIPT}", abbreviated_month, year)
+        sCBDebitCardEStatementFolder = create_named_subfolder(f"{Constants.STANDARD_CHARTERED_BANK_ABBREVIATION} {Constants.DEBIT} {Constants.CARD} {Constants.E_STATEMENT}", abbreviated_month, year)
+        sCBDebitReceiptFolder = create_named_subfolder(f"{Constants.STANDARD_CHARTERED_BANK_ABBREVIATION} {Constants.DEBIT} {Constants.RECEIPT}", abbreviated_month, year)
 
         # Creating Standard Chartered Bank Credit Receipts Folder
-        sCBCreditAppTransactionFolder = create_named_subfolder("SCB Credit App Transaction", abbreviated_month, year)
-        sCBCreditCardTransactionFolder = create_named_subfolder("SCB Credit Card Transaction", abbreviated_month, year)
-        sCBCreditCashTransactionFolder = create_named_subfolder("SCB Credit Cash Transaction", abbreviated_month, year)
+        sCBCreditAppTransactionFolder = create_named_subfolder(f"{Constants.STANDARD_CHARTERED_BANK_ABBREVIATION} {Constants.CREDIT} {Constants.APP} {Constants.TRANSACTION}", abbreviated_month, year)
+        sCBCreditCardTransactionFolder = create_named_subfolder(f"{Constants.STANDARD_CHARTERED_BANK_ABBREVIATION} {Constants.CREDIT} {Constants.CARD} {Constants.TRANSACTION}", abbreviated_month, year)
+        sCBCreditCashTransactionFolder = create_named_subfolder(f"{Constants.STANDARD_CHARTERED_BANK_ABBREVIATION} {Constants.CREDIT} {Constants.CASH} {Constants.TRANSACTION}", abbreviated_month, year)
 
         # Creating Standard Chartered Bank Debit Receipts Folder
-        sCBDebitAppTransactionFolder = create_named_subfolder("SCB Debit App Transaction", abbreviated_month, year)
-        sCBDebitCardTransactionFolder = create_named_subfolder("SCB Debit Card Transaction", abbreviated_month, year)
-        sCBDebitCashTransactionFolder = create_named_subfolder("SCB Debit Cash Transaction", abbreviated_month, year)
+        sCBDebitAppTransactionFolder = create_named_subfolder(f"{Constants.STANDARD_CHARTERED_BANK_ABBREVIATION} {Constants.DEBIT} {Constants.APP} {Constants.TRANSACTION}", abbreviated_month, year)
+        sCBDebitCardTransactionFolder = create_named_subfolder(f"{Constants.STANDARD_CHARTERED_BANK_ABBREVIATION} {Constants.DEBIT} {Constants.CARD} {Constants.TRANSACTION}", abbreviated_month, year)
+        sCBDebitCashTransactionFolder = create_named_subfolder(f"{Constants.STANDARD_CHARTERED_BANK_ABBREVIATION} {Constants.DEBIT} {Constants.CASH} {Constants.TRANSACTION}", abbreviated_month, year)
 
 
         # Creating Upaisa Receipt Folder
-        uPCreditCardEStatementFolder = create_named_subfolder("UP Credit Card E Statement", abbreviated_month, year)
-        uPCreditReceiptFolder = create_named_subfolder("UP Credit Receipt", abbreviated_month, year)
-        uPDebitCardEStatementFolder = create_named_subfolder("UP Debit Card E Statement", abbreviated_month, year)
-        uPDebitReceiptFolder = create_named_subfolder("UP Debit Receipt", abbreviated_month, year)
+        uPCreditCardEStatementFolder = create_named_subfolder(f"{Constants.U_PAISA_ABBREVIATION} {Constants.CREDIT} {Constants.CARD} {Constants.E_STATEMENT}", abbreviated_month, year)
+        uPCreditReceiptFolder = create_named_subfolder(f"{Constants.U_PAISA_ABBREVIATION} {Constants.CREDIT} {Constants.RECEIPT}", abbreviated_month, year)
+        uPDebitCardEStatementFolder = create_named_subfolder(f"{Constants.U_PAISA_ABBREVIATION} {Constants.DEBIT} {Constants.CARD} {Constants.E_STATEMENT}", abbreviated_month, year)
+        uPDebitReceiptFolder = create_named_subfolder(f"{Constants.U_PAISA_ABBREVIATION} {Constants.DEBIT} {Constants.RECEIPT}", abbreviated_month, year)
 
         # Creating Upaisa Credit Receipts Folder
-        uPCreditAppTransactionFolder = create_named_subfolder("UP Credit App Transaction", abbreviated_month, year)
-        uPCreditCardTransactionFolder = create_named_subfolder("UP Credit Card Transaction", abbreviated_month, year)
-        uPCreditCashTransactionFolder = create_named_subfolder("UP Credit Cash Transaction", abbreviated_month, year)
+        uPCreditAppTransactionFolder = create_named_subfolder(f"{Constants.U_PAISA_ABBREVIATION} {Constants.CREDIT} {Constants.APP} {Constants.TRANSACTION}", abbreviated_month, year)
+        uPCreditCardTransactionFolder = create_named_subfolder(f"{Constants.U_PAISA_ABBREVIATION} {Constants.CREDIT} {Constants.CARD} {Constants.TRANSACTION}", abbreviated_month, year)
+        uPCreditCashTransactionFolder = create_named_subfolder(f"{Constants.U_PAISA_ABBREVIATION} {Constants.CREDIT} {Constants.CASH} {Constants.TRANSACTION}", abbreviated_month, year)
 
         # Creating Upaisa Debit Receipts Folder
-        uPDebitAppTransactionFolder = create_named_subfolder("UP Debit App Transaction", abbreviated_month, year)
-        uPDebitCardTransactionFolder = create_named_subfolder("UP Debit Card Transaction", abbreviated_month, year)
-        uPDebitCashTransactionFolder = create_named_subfolder("UP Debit Cash Transaction", abbreviated_month, year)
+        uPDebitAppTransactionFolder = create_named_subfolder(f"{Constants.U_PAISA_ABBREVIATION} {Constants.DEBIT} {Constants.APP} {Constants.TRANSACTION}", abbreviated_month, year)
+        uPDebitCardTransactionFolder = create_named_subfolder(f"{Constants.U_PAISA_ABBREVIATION} {Constants.DEBIT} {Constants.CARD} {Constants.TRANSACTION}", abbreviated_month, year)
+        uPDebitCashTransactionFolder = create_named_subfolder(f"{Constants.U_PAISA_ABBREVIATION} {Constants.DEBIT} {Constants.CASH} {Constants.TRANSACTION}", abbreviated_month, year)
 
 
         # Creating Zindigi Receipt Folder
-        zICreditCardEStatementFolder = create_named_subfolder("ZI Credit Card E Statement", abbreviated_month, year)
-        zICreditReceiptFolder = create_named_subfolder("ZI Credit Receipt", abbreviated_month, year)
-        zIDebitCardEStatementFolder = create_named_subfolder("ZI Debit Card E Statement", abbreviated_month, year)
-        zIDebitReceiptFolder = create_named_subfolder("ZI Debit Receipt", abbreviated_month, year)
+        zICreditCardEStatementFolder = create_named_subfolder(f"{Constants.ZINDIGI_ABBREVIATION} {Constants.CREDIT} {Constants.CARD} {Constants.E_STATEMENT}", abbreviated_month, year)
+        zICreditReceiptFolder = create_named_subfolder(f"{Constants.ZINDIGI_ABBREVIATION} {Constants.CREDIT} {Constants.RECEIPT}", abbreviated_month, year)
+        zIDebitCardEStatementFolder = create_named_subfolder(f"{Constants.ZINDIGI_ABBREVIATION} {Constants.DEBIT} {Constants.CARD} {Constants.E_STATEMENT}", abbreviated_month, year)
+        zIDebitReceiptFolder = create_named_subfolder(f"{Constants.ZINDIGI_ABBREVIATION} {Constants.DEBIT} {Constants.RECEIPT}", abbreviated_month, year)
 
         # Creating Zindigi Credit Receipts Folder
-        zICreditAppTransactionFolder = create_named_subfolder("ZI Credit App Transaction", abbreviated_month, year)
-        zICreditCardTransactionFolder = create_named_subfolder("ZI Credit Card Transaction", abbreviated_month, year)
-        zICreditCashTransactionFolder = create_named_subfolder("ZI Credit Cash Transaction", abbreviated_month, year)
+        zICreditAppTransactionFolder = create_named_subfolder(f"{Constants.ZINDIGI_ABBREVIATION} {Constants.CREDIT} {Constants.APP} {Constants.TRANSACTION}", abbreviated_month, year)
+        zICreditCardTransactionFolder = create_named_subfolder(f"{Constants.ZINDIGI_ABBREVIATION} {Constants.CREDIT} {Constants.CARD} {Constants.TRANSACTION}", abbreviated_month, year)
+        zICreditCashTransactionFolder = create_named_subfolder(f"{Constants.ZINDIGI_ABBREVIATION} {Constants.CREDIT} {Constants.CASH} {Constants.TRANSACTION}", abbreviated_month, year)
 
         # Creating Zindigi Debit Receipts Folder
-        zIDebitAppTransactionFolder = create_named_subfolder("ZI Debit App Transaction", abbreviated_month, year)
-        zIDebitCardTransactionFolder = create_named_subfolder("ZI Debit Card Transaction", abbreviated_month, year)
-        zIDebitCashTransactionFolder = create_named_subfolder("ZI Debit Cash Transaction", abbreviated_month, year)
+        zIDebitAppTransactionFolder = create_named_subfolder(f"{Constants.ZINDIGI_ABBREVIATION} {Constants.DEBIT} {Constants.APP} {Constants.TRANSACTION}", abbreviated_month, year)
+        zIDebitCardTransactionFolder = create_named_subfolder(f"{Constants.ZINDIGI_ABBREVIATION} {Constants.DEBIT} {Constants.CARD} {Constants.TRANSACTION}", abbreviated_month, year)
+        zIDebitCashTransactionFolder = create_named_subfolder(f"{Constants.ZINDIGI_ABBREVIATION} {Constants.DEBIT} {Constants.CASH} {Constants.TRANSACTION}", abbreviated_month, year)
 
 
         # Creating Raqami Receipt Folder
-        rQCreditCardEStatementFolder = create_named_subfolder("RQ Credit Card E Statement", abbreviated_month, year)
-        rQCreditReceiptFolder = create_named_subfolder("RQ Credit Receipt", abbreviated_month, year)
-        rQDebitCardEStatementFolder = create_named_subfolder("RQ Debit Card E Statement", abbreviated_month, year)
-        rQDebitReceiptFolder = create_named_subfolder("RQ Debit Receipt", abbreviated_month, year)
+        rQCreditCardEStatementFolder = create_named_subfolder(f"{Constants.RAQAMI_ABBREVIATION} {Constants.CREDIT} {Constants.CARD} {Constants.E_STATEMENT}", abbreviated_month, year)
+        rQCreditReceiptFolder = create_named_subfolder(f"{Constants.RAQAMI_ABBREVIATION} {Constants.CREDIT} {Constants.RECEIPT}", abbreviated_month, year)
+        rQDebitCardEStatementFolder = create_named_subfolder(f"{Constants.RAQAMI_ABBREVIATION} {Constants.DEBIT} {Constants.CARD} {Constants.E_STATEMENT}", abbreviated_month, year)
+        rQDebitReceiptFolder = create_named_subfolder(f"{Constants.RAQAMI_ABBREVIATION} {Constants.DEBIT} {Constants.RECEIPT}", abbreviated_month, year)
 
         # Creating Raqami Credit Receipts Folder
-        rQCreditAppTransactionFolder = create_named_subfolder("RQ Credit App Transaction", abbreviated_month, year)
-        rQCreditCardTransactionFolder = create_named_subfolder("RQ Credit Card Transaction", abbreviated_month, year)
-        rQCreditCashTransactionFolder = create_named_subfolder("RQ Credit Cash Transaction", abbreviated_month, year)
+        rQCreditAppTransactionFolder = create_named_subfolder(f"{Constants.RAQAMI_ABBREVIATION} {Constants.CREDIT} {Constants.APP} {Constants.TRANSACTION}", abbreviated_month, year)
+        rQCreditCardTransactionFolder = create_named_subfolder(f"{Constants.RAQAMI_ABBREVIATION} {Constants.CREDIT} {Constants.CARD} {Constants.TRANSACTION}", abbreviated_month, year)
+        rQCreditCashTransactionFolder = create_named_subfolder(f"{Constants.RAQAMI_ABBREVIATION} {Constants.CREDIT} {Constants.CASH} {Constants.TRANSACTION}", abbreviated_month, year)
 
         # Creating Raqami Debit Receipts Folder
-        rQDebitAppTransactionFolder = create_named_subfolder("RQ Debit App Transaction", abbreviated_month, year)
-        rQDebitCardTransactionFolder = create_named_subfolder("RQ Debit Card Transaction", abbreviated_month, year)
-        rQDebitCashTransactionFolder = create_named_subfolder("RQ Debit Cash Transaction", abbreviated_month, year)
+        rQDebitAppTransactionFolder = create_named_subfolder(f"{Constants.RAQAMI_ABBREVIATION} {Constants.DEBIT} {Constants.APP} {Constants.TRANSACTION}", abbreviated_month, year)
+        rQDebitCardTransactionFolder = create_named_subfolder(f"{Constants.RAQAMI_ABBREVIATION} {Constants.DEBIT} {Constants.CARD} {Constants.TRANSACTION}", abbreviated_month, year)
+        rQDebitCashTransactionFolder = create_named_subfolder(f"{Constants.RAQAMI_ABBREVIATION} {Constants.DEBIT} {Constants.CASH} {Constants.TRANSACTION}", abbreviated_month, year)
 
 
         # Creating Trading Receipt Folder
-        cDCReceiptFolder = create_named_subfolder("CDC Receipt", abbreviated_month, year)
-        cGTReceiptFolder = create_named_subfolder("CGT Receipt", abbreviated_month, year)
-        kTradeReceiptFolder = create_named_subfolder("KTrade Receipt", abbreviated_month, year)
+        cDCReceiptFolder = create_named_subfolder(f"{Constants.CDC} {Constants.RECEIPT}", abbreviated_month, year)
+        cGTReceiptFolder = create_named_subfolder(f"{Constants.CGT} {Constants.RECEIPT}", abbreviated_month, year)
+        kTradeReceiptFolder = create_named_subfolder(f"{Constants.KTRADE} {Constants.RECEIPT}", abbreviated_month, year)
 
         # Creating KTrade Receipt Folder
-        kTradeDividendStatementFolder = create_named_subfolder("KTrade Dividend Statement", abbreviated_month, year)
-        kTradeEStatementFolder = create_named_subfolder("KTrade E Statement", abbreviated_month, year)
-        kTradeTradeConfirmationFolder = create_named_subfolder("KTrade Trade Confirmation", abbreviated_month, year)
+        kTradeDividendStatementFolder = create_named_subfolder(f"{Constants.KTRADE} {Constants.DIVIDEND} {Constants.STATEMENT}", abbreviated_month, year)
+        kTradeEStatementFolder = create_named_subfolder(f"{Constants.KTRADE} {Constants.E_STATEMENT}", abbreviated_month, year)
+        kTradeTradeConfirmationFolder = create_named_subfolder(f"{Constants.KTRADE} {Constants.TRADE} {Constants.CONFIRMATION}", abbreviated_month, year)
 
 
         # Moving Allied Bank Credit Receipts into Allied Bank Credit Receipts Folder
