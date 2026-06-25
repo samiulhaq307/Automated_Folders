@@ -1,38 +1,37 @@
 import os
 import shutil
+from constants.Constants import Constants
+
+
+def ensure_directory_exists(folder_path):
+    if not os.path.exists(folder_path):
+        os.makedirs(folder_path)
+
+
+def create_bank_receipts_folder(bank_name, month, year):
+    folder_path = f"{bank_name} {Constants.RECEIPTS} {month} {year}"
+    ensure_directory_exists(folder_path)
+    return folder_path
+
+
+def create_named_subfolder(full_name, abbreviated_month, year):
+    folder_path = f"{full_name} {abbreviated_month} {year}"
+    ensure_directory_exists(folder_path)
+    return folder_path
+
+
+def move_folder_if_exists(source, destination):
+    if os.path.exists(source):
+        shutil.move(source, destination)
 
 
 def generate_monthly_budget_folders(year):
-    months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October",
-              "November", "December"]
+    months = [Constants.JANUARY, Constants.FEBRUARY, Constants.MARCH, Constants.APRIL, Constants.MAY, Constants.JUNE, Constants.JULY, Constants.AUGUST, Constants.SEPTEMBER, Constants.OCTOBER,
+              Constants.NOVEMBER, Constants.DECEMBER]
 
-    dest_folder = f"Receipts {year}"
-    print(f"Creating Receipts {year} Folder")
-    if not os.path.exists(dest_folder):
-        os.makedirs(dest_folder)
-
-    receipts = f"Receipts"
-    receipt = f"Receipt"
-    market = f"Market"
-    gym = f"Gym"
-    account = f"Account"
-    alliedBank = f"Allied Bank"
-    bankAlfalah = f"Bank Alfalah"
-    easyPaissa = f"EasyPaissa"
-    fasset = f"Fasset"
-    HBLMicrofinance = "HBL Microfinance"
-    jazzCash = f"JazzCash"
-    mashreqBank = f"Mashreq Bank"
-    meezanBank = f"Meezan Bank"
-    nayaPay = f"NayaPay"
-    payoneer = "Payoneer"
-    pakQatarFinance = "Pak Qatar Finance"
-    raqami = f"Raqami"
-    sadaPay = f"SadaPay"
-    standardCharteredBank = f"Standard Chartered Bank"
-    uPaisa = f"UPaisa"
-    zindgi = f"Zindgi"
-    trading = f"Trading"
+    dest_folder = f"{Constants.RECEIPTS} {year}"
+    print(f"\n{Constants.CREATING} {Constants.RECEIPTS} {year} {Constants.FOLDER}")
+    ensure_directory_exists(dest_folder)
 
     for i, month in enumerate(months, start=1):
         abbreviated_month = month[:3]
@@ -41,988 +40,453 @@ def generate_monthly_budget_folders(year):
         folder_number = str(i).zfill(2)
 
         # Creating Monthly Receipts Folder
-        monthReceiptsFolder = f"{folder_number}_{receipts} {month} {year}"
-        print(f"Month {receipts} Folder Path:", monthReceiptsFolder)
-        if not os.path.exists(monthReceiptsFolder):
-            os.makedirs(monthReceiptsFolder)
-
+        print(f"\n\n{Constants.MONTH} {Constants.RECEIPT} {Constants.FOLDER} {Constants.NAME}:", monthReceiptsFolder)
+        monthReceiptsFolder = f"{folder_number}_{Constants.RECEIPTS} {month} {year}"
+        ensure_directory_exists(monthReceiptsFolder)
 
         # Creating Market Receipts Folder
-        marketReceiptsFolder = f"Market Receipts {month} {year}"
-        if not os.path.exists(marketReceiptsFolder):
-            os.makedirs(marketReceiptsFolder)
+        marketReceiptsFolder = f"{Constants.MARKET} {Constants.RECEIPTS} {month} {year}"
+        ensure_directory_exists(marketReceiptsFolder)
 
         # Creating Gym Receipts Folder
-        gymReceiptsFolder = f"Gym Receipts {month} {year}"
-        if not os.path.exists(gymReceiptsFolder):
-            os.makedirs(gymReceiptsFolder)
+        gymReceiptsFolder = f"{Constants.GYM} {Constants.RECEIPTS} {month} {year}"
+        ensure_directory_exists(gymReceiptsFolder)
 
         # Creating Account Receipts Folder
-        accountReceiptsFolder = f"Account Receipts {month} {year}"
-        if not os.path.exists(accountReceiptsFolder):
-            os.makedirs(accountReceiptsFolder)
+        accountReceiptsFolder = f"{Constants.ACCOUNT} {Constants.RECEIPTS} {month} {year}"
+        ensure_directory_exists(accountReceiptsFolder)
 
         # Creating All Banks Folder
-        alliedBankReceiptsFolder = f"Allied Bank Receipts {month} {year}"
-        if not os.path.exists(alliedBankReceiptsFolder):
-            os.makedirs(alliedBankReceiptsFolder)
-
-        bankAlfalahReceiptsFolder = f"Bank Alfalah Receipts {month} {year}"
-        if not os.path.exists(bankAlfalahReceiptsFolder):
-            os.makedirs(bankAlfalahReceiptsFolder)
-
-        easyPaissaReceiptsFolder = f"EasyPaissa Receipts {month} {year}"
-        if not os.path.exists(easyPaissaReceiptsFolder):
-            os.makedirs(easyPaissaReceiptsFolder)
-
-        firstPayReceiptsFolder = f"FirstPay Receipts {month} {year}"
-        if not os.path.exists(firstPayReceiptsFolder):
-            os.makedirs(firstPayReceiptsFolder)
-
-        jazzCashReceiptsFolder = f"JazzCash Receipts {month} {year}"
-        if not os.path.exists(jazzCashReceiptsFolder):
-            os.makedirs(jazzCashReceiptsFolder)
-
-        mashreqReceiptsFolder = f"Mashreq Receipts {month} {year}"
-        if not os.path.exists(mashreqReceiptsFolder):
-            os.makedirs(mashreqReceiptsFolder)
-
-        meezanBankReceiptsFolder = f"Meezan Bank Receipts {month} {year}"
-        if not os.path.exists(meezanBankReceiptsFolder):
-            os.makedirs(meezanBankReceiptsFolder)
-
-        nayaPayReceiptsFolder = f"NayaPay Receipts {month} {year}"
-        if not os.path.exists(nayaPayReceiptsFolder):
-            os.makedirs(nayaPayReceiptsFolder)
-
-        sadaPayReceiptsFolder = f"SadaPay Receipts {month} {year}"
-        if not os.path.exists(sadaPayReceiptsFolder):
-            os.makedirs(sadaPayReceiptsFolder)
-
-        standardCharteredBankReceiptsFolder = f"Standard Chartered Bank Receipts {month} {year}"
-        if not os.path.exists(standardCharteredBankReceiptsFolder):
-            os.makedirs(standardCharteredBankReceiptsFolder)
-
-        uPaisaReceiptsFolder = f"UPaisa Receipts {month} {year}"
-        if not os.path.exists(uPaisaReceiptsFolder):
-            os.makedirs(uPaisaReceiptsFolder)
-
-        zindigiReceiptsFolder = f"Zindigi Receipts {month} {year}"
-        if not os.path.exists(zindigiReceiptsFolder):
-            os.makedirs(zindigiReceiptsFolder)
-
-        tradingReceiptsFolder = f"Trading Receipts {month} {year}"
-        if not os.path.exists(tradingReceiptsFolder):
-            os.makedirs(tradingReceiptsFolder)
-
+        alliedBankReceiptsFolder = create_bank_receipts_folder(Constants.ALLIED_BANK, month, year)
+        bankAlfalahReceiptsFolder = create_bank_receipts_folder(Constants.BANK_ALFALAH, month, year)
+        easyPaissaReceiptsFolder = create_bank_receipts_folder(Constants.EASY_PAISSA, month, year)
+        firstPayReceiptsFolder = create_bank_receipts_folder(Constants.FIRST_PAY, month, year)
+        jazzCashReceiptsFolder = create_bank_receipts_folder(Constants.JAZZ_CASH, month, year)
+        mashreqReceiptsFolder = create_bank_receipts_folder(Constants.MASHREQ_BANK, month, year)
+        meezanBankReceiptsFolder = create_bank_receipts_folder(Constants.MEEZAN_BANK, month, year)
+        nayaPayReceiptsFolder = create_bank_receipts_folder(Constants.NAYA_PAY, month, year)
+        sadaPayReceiptsFolder = create_bank_receipts_folder(Constants.SADA_PAY, month, year)
+        standardCharteredBankReceiptsFolder = create_bank_receipts_folder(Constants.STANDARD_CHARTERED_BANK, month,
+                                                                          year)
+        uPaisaReceiptsFolder = create_bank_receipts_folder(Constants.U_PAISA, month, year)
+        zindgiReceiptsFolder = create_bank_receipts_folder(Constants.ZINDIGI, month, year)
+        tradingReceiptsFolder = create_bank_receipts_folder(Constants.TRADING, month, year)
 
         # Creating Allied Bank Receipt Folders
-        aBCreditCardEStatementFolder = f"AB Credit Card E Statement {abbreviated_month} {year}"
-        if not os.path.exists(aBCreditCardEStatementFolder):
-            os.makedirs(aBCreditCardEStatementFolder)
-
-        aBCreditReceiptFolder = f"AB Credit Receipt {abbreviated_month} {year}"
-        if not os.path.exists(aBCreditReceiptFolder):
-            os.makedirs(aBCreditReceiptFolder)
-
-        aBDebitCardEStatementFolder = f"AB Debit Card E Statement {abbreviated_month} {year}"
-        if not os.path.exists(aBDebitCardEStatementFolder):
-            os.makedirs(aBDebitCardEStatementFolder)
-
-        aBDebitReceiptFolder = f"AB Debit Receipt {abbreviated_month} {year}"
-        if not os.path.exists(aBDebitReceiptFolder):
-            os.makedirs(aBDebitReceiptFolder)
+        aBCreditCardEStatementFolder = create_named_subfolder("AB Credit Card E Statement", abbreviated_month, year)
+        aBCreditReceiptFolder = create_named_subfolder("AB Credit Receipt", abbreviated_month, year)
+        aBDebitCardEStatementFolder = create_named_subfolder("AB Debit Card E Statement", abbreviated_month, year)
+        aBDebitReceiptFolder = create_named_subfolder("AB Debit Receipt", abbreviated_month, year)
 
         # Creating Allied Bank Credit Receipts Folder
-        aBCreditAppTransactionFolder = f"AB Credit App Transaction {abbreviated_month} {year}"
-        if not os.path.exists(aBCreditAppTransactionFolder):
-            os.makedirs(aBCreditAppTransactionFolder)
-
-        aBCreditCardTransactionFolder = f"AB Credit Card Transaction {abbreviated_month} {year}"
-        if not os.path.exists(aBCreditCardTransactionFolder):
-            os.makedirs(aBCreditCardTransactionFolder)
-
-        aBCreditCashTransactionFolder = f"AB Credit Cash Transaction {abbreviated_month} {year}"
-        if not os.path.exists(aBCreditCashTransactionFolder):
-            os.makedirs(aBCreditCashTransactionFolder)
+        aBCreditAppTransactionFolder = create_named_subfolder("AB Credit App Transaction", abbreviated_month, year)
+        aBCreditCardTransactionFolder = create_named_subfolder("AB Credit Card Transaction", abbreviated_month, year)
+        aBCreditCashTransactionFolder = create_named_subfolder("AB Credit Cash Transaction", abbreviated_month, year)
 
         # Creating Allied Bank Debit Receipts Folder
-        aBDebitAppTransactionFolder = f"AB Debit App Transaction {abbreviated_month} {year}"
-        if not os.path.exists(aBDebitAppTransactionFolder):
-            os.makedirs(aBDebitAppTransactionFolder)
+        aBDebitAppTransactionFolder = create_named_subfolder("AB Debit App Transaction", abbreviated_month, year)
+        aBDebitCardTransactionFolder = create_named_subfolder("AB Debit Card Transaction", abbreviated_month, year)
+        aBDebitCashTransactionFolder = create_named_subfolder("AB Debit Cash Transaction", abbreviated_month, year)
 
-        aBDebitCardTransactionFolder = f"AB Debit Card Transaction {abbreviated_month} {year}"
-        if not os.path.exists(aBDebitCardTransactionFolder):
-            os.makedirs(aBDebitCardTransactionFolder)
-
-        aBDebitCashTransactionFolder = f"AB Debit Cash Transaction {abbreviated_month} {year}"
-        if not os.path.exists(aBDebitCashTransactionFolder):
-            os.makedirs(aBDebitCashTransactionFolder)
 
         # Creating Bank Alfalah Receipt Folders
-        bACreditCardEStatementFolder = f"BA Credit Card E Statement {abbreviated_month} {year}"
-        if not os.path.exists(bACreditCardEStatementFolder):
-            os.makedirs(bACreditCardEStatementFolder)
-
-        bACreditReceiptFolder = f"BA Credit Receipt {abbreviated_month} {year}"
-        if not os.path.exists(bACreditReceiptFolder):
-            os.makedirs(bACreditReceiptFolder)
-
-        bADebitCardEStatementFolder = f"BA Debit Card E Statement {abbreviated_month} {year}"
-        if not os.path.exists(bADebitCardEStatementFolder):
-            os.makedirs(bADebitCardEStatementFolder)
-
-        bADebitReceiptFolder = f"BA Debit Receipt {abbreviated_month} {year}"
-        if not os.path.exists(bADebitReceiptFolder):
-            os.makedirs(bADebitReceiptFolder)
-
-        bAOrbitStatementFolder = f"BA Orbit Statement {abbreviated_month} {year}"
-        if not os.path.exists(bAOrbitStatementFolder):
-            os.makedirs(bAOrbitStatementFolder)
+        bACreditCardEStatementFolder = create_named_subfolder("BA Credit Card E Statement", abbreviated_month, year)
+        bACreditReceiptFolder = create_named_subfolder("BA Credit Receipt", abbreviated_month, year)
+        bADebitCardEStatementFolder = create_named_subfolder("BA Debit Card E Statement", abbreviated_month, year)
+        bADebitReceiptFolder = create_named_subfolder("BA Debit Receipt", abbreviated_month, year)
+        bAOrbitStatementFolder = create_named_subfolder("BA Orbit Statement", abbreviated_month, year)
 
         # Creating Bank Alfalah Credit Receipts Folder
-        bACreditAppTransactionFolder = f"BA Credit App Transaction {abbreviated_month} {year}"
-        if not os.path.exists(bACreditAppTransactionFolder):
-            os.makedirs(bACreditAppTransactionFolder)
-
-        bACreditCardTransactionFolder = f"BA Credit Card Transaction {abbreviated_month} {year}"
-        if not os.path.exists(bACreditCardTransactionFolder):
-            os.makedirs(bACreditCardTransactionFolder)
-
-        bACreditCashTransactionFolder = f"BA Credit Cash Transaction {abbreviated_month} {year}"
-        if not os.path.exists(bACreditCashTransactionFolder):
-            os.makedirs(bACreditCashTransactionFolder)
+        bACreditAppTransactionFolder = create_named_subfolder("BA Credit App Transaction", abbreviated_month, year)
+        bACreditCardTransactionFolder = create_named_subfolder("BA Credit Card Transaction", abbreviated_month, year)
+        bACreditCashTransactionFolder = create_named_subfolder("BA Credit Cash Transaction", abbreviated_month, year)
 
         # Creating Bank Alfalah Debit Receipts Folder
-        bADebitAppTransactionFolder = f"BA Debit App Transaction {abbreviated_month} {year}"
-        if not os.path.exists(bADebitAppTransactionFolder):
-            os.makedirs(bADebitAppTransactionFolder)
-
-        bADebitCardTransactionFolder = f"BA Debit Card Transaction {abbreviated_month} {year}"
-        if not os.path.exists(bADebitCardTransactionFolder):
-            os.makedirs(bADebitCardTransactionFolder)
-
-        bADebitCashTransactionFolder = f"BA Debit Cash Transaction {abbreviated_month} {year}"
-        if not os.path.exists(bADebitCashTransactionFolder):
-            os.makedirs(bADebitCashTransactionFolder)
+        bADebitAppTransactionFolder = create_named_subfolder("BA Debit App Transaction", abbreviated_month, year)
+        bADebitCardTransactionFolder = create_named_subfolder("BA Debit Card Transaction", abbreviated_month, year)
+        bADebitCashTransactionFolder = create_named_subfolder("BA Debit Cash Transaction", abbreviated_month, year)
 
 
         # Creating EasyPaissa Receipt Folder
-        ePCreditReceiptFolder = f"EP Credit Receipt {abbreviated_month} {year}"
-        if not os.path.exists(ePCreditReceiptFolder):
-            os.makedirs(ePCreditReceiptFolder)
-
-        ePDebitReceiptFolder = f"EP Debit Receipt {abbreviated_month} {year}"
-        if not os.path.exists(ePDebitReceiptFolder):
-            os.makedirs(ePDebitReceiptFolder)
-
+        ePCreditReceiptFolder = create_named_subfolder("EP Credit Receipt", abbreviated_month, year)
+        ePDebitReceiptFolder = create_named_subfolder("EP Debit Receipt", abbreviated_month, year)
 
         # Creating EasyPaissa Credit Receipts Folder
-        ePCreditAppTransactionFolder = f"EP Credit App Transaction {abbreviated_month} {year}"
-        if not os.path.exists(ePCreditAppTransactionFolder):
-            os.makedirs(ePCreditAppTransactionFolder)
-
-        ePCreditCardTransactionFolder = f"EP Credit Card Transaction {abbreviated_month} {year}"
-        if not os.path.exists(ePCreditCardTransactionFolder):
-            os.makedirs(ePCreditCardTransactionFolder)
-
-        ePCreditCashTransactionFolder = f"EP Credit Cash Transaction {abbreviated_month} {year}"
-        if not os.path.exists(ePCreditCashTransactionFolder):
-            os.makedirs(ePCreditCashTransactionFolder)
+        ePCreditAppTransactionFolder = create_named_subfolder("EP Credit App Transaction", abbreviated_month, year)
+        ePCreditCardTransactionFolder = create_named_subfolder("EP Credit Card Transaction", abbreviated_month, year)
+        ePCreditCashTransactionFolder = create_named_subfolder("EP Credit Cash Transaction", abbreviated_month, year)
 
         # Creating EasyPaissa Debit Receipts Folder
-        ePDebitAppTransactionFolder = f"EP Debit App Transaction {abbreviated_month} {year}"
-        if not os.path.exists(ePDebitAppTransactionFolder):
-            os.makedirs(ePDebitAppTransactionFolder)
+        ePDebitAppTransactionFolder = create_named_subfolder("EP Debit App Transaction", abbreviated_month, year)
+        ePDebitCardTransactionFolder = create_named_subfolder("EP Debit Card Transaction", abbreviated_month, year)
+        ePDebitCashTransactionFolder = create_named_subfolder("EP Debit Cash Transaction", abbreviated_month, year)
 
-        ePDebitCardTransactionFolder = f"EP Debit Card Transaction {abbreviated_month} {year}"
-        if not os.path.exists(ePDebitCardTransactionFolder):
-            os.makedirs(ePDebitCardTransactionFolder)
-
-        ePDebitCashTransactionFolder = f"EP Debit Cash Transaction {abbreviated_month} {year}"
-        if not os.path.exists(ePDebitCashTransactionFolder):
-            os.makedirs(ePDebitCashTransactionFolder)
 
         # Creating FirstPay Receipt Folder
-        fPCreditReceiptFolder = f"FP Credit Receipt {abbreviated_month} {year}"
-        if not os.path.exists(fPCreditReceiptFolder):
-            os.makedirs(fPCreditReceiptFolder)
-
-        fPDebitReceiptFolder = f"FP Debit Receipt {abbreviated_month} {year}"
-        if not os.path.exists(fPDebitReceiptFolder):
-            os.makedirs(fPDebitReceiptFolder)
+        fPCreditReceiptFolder = create_named_subfolder("FP Credit Receipt", abbreviated_month, year)
+        fPDebitReceiptFolder = create_named_subfolder("FP Debit Receipt", abbreviated_month, year)
 
         # Creating FirstPay Credit Receipts Folder
-        fPCreditAppTransactionFolder = f"FP Credit App Transaction {abbreviated_month} {year}"
-        if not os.path.exists(fPCreditAppTransactionFolder):
-            os.makedirs(fPCreditAppTransactionFolder)
-
-        fPCreditCardTransactionFolder = f"FP Credit Card Transaction {abbreviated_month} {year}"
-        if not os.path.exists(fPCreditCardTransactionFolder):
-            os.makedirs(fPCreditCardTransactionFolder)
-
-        fPCreditCashTransactionFolder = f"FP Credit Cash Transaction {abbreviated_month} {year}"
-        if not os.path.exists(fPCreditCashTransactionFolder):
-            os.makedirs(fPCreditCashTransactionFolder)
+        fPCreditAppTransactionFolder = create_named_subfolder("FP Credit App Transaction", abbreviated_month, year)
+        fPCreditCardTransactionFolder = create_named_subfolder("FP Credit Card Transaction", abbreviated_month, year)
+        fPCreditCashTransactionFolder = create_named_subfolder("FP Credit Cash Transaction", abbreviated_month, year)
 
         # Creating FirstPay Debit Receipts Folder
-        fPDebitAppTransactionFolder = f"FP Debit App Transaction {abbreviated_month} {year}"
-        if not os.path.exists(fPDebitAppTransactionFolder):
-            os.makedirs(fPDebitAppTransactionFolder)
-
-        fPDebitCardTransactionFolder = f"FP Debit Card Transaction {abbreviated_month} {year}"
-        if not os.path.exists(fPDebitCardTransactionFolder):
-            os.makedirs(fPDebitCardTransactionFolder)
-
-        fPDebitCashTransactionFolder = f"FP Debit Cash Transaction {abbreviated_month} {year}"
-        if not os.path.exists(fPDebitCashTransactionFolder):
-            os.makedirs(fPDebitCashTransactionFolder)
+        fPDebitAppTransactionFolder = create_named_subfolder("FP Debit App Transaction", abbreviated_month, year)
+        fPDebitCardTransactionFolder = create_named_subfolder("FP Debit Card Transaction", abbreviated_month, year)
+        fPDebitCashTransactionFolder = create_named_subfolder("FP Debit Cash Transaction", abbreviated_month, year)
 
 
         # Creating JazzCash Receipt Folder
-        jCCreditReceiptFolder = f"JC Credit Receipt {abbreviated_month} {year}"
-        if not os.path.exists(jCCreditReceiptFolder):
-            os.makedirs(jCCreditReceiptFolder)
-
-        jCDebitReceiptFolder = f"JC Debit Receipt {abbreviated_month} {year}"
-        if not os.path.exists(jCDebitReceiptFolder):
-            os.makedirs(jCDebitReceiptFolder)
+        jCCreditReceiptFolder = create_named_subfolder("JC Credit Receipt", abbreviated_month, year)
+        jCDebitReceiptFolder = create_named_subfolder("JC Debit Receipt", abbreviated_month, year)
 
         # Creating JazzCash Credit Receipts Folder
-        jCCreditAppTransactionFolder = f"JC Credit App Transaction {abbreviated_month} {year}"
-        if not os.path.exists(jCCreditAppTransactionFolder):
-            os.makedirs(jCCreditAppTransactionFolder)
-
-        jCCreditCardTransactionFolder = f"JC Credit Card Transaction {abbreviated_month} {year}"
-        if not os.path.exists(jCCreditCardTransactionFolder):
-            os.makedirs(jCCreditCardTransactionFolder)
-
-        jCCreditCashTransactionFolder = f"JC Credit Cash Transaction {abbreviated_month} {year}"
-        if not os.path.exists(jCCreditCashTransactionFolder):
-            os.makedirs(jCCreditCashTransactionFolder)
+        jCCreditAppTransactionFolder = create_named_subfolder("JC Credit App Transaction", abbreviated_month, year)
+        jCCreditCardTransactionFolder = create_named_subfolder("JC Credit Card Transaction", abbreviated_month, year)
+        jCCreditCashTransactionFolder = create_named_subfolder("JC Credit Cash Transaction", abbreviated_month, year)
 
         # Creating JazzCash Debit Receipts Folder
-        jCDebitAppTransactionFolder = f"JC Debit App Transaction {abbreviated_month} {year}"
-        if not os.path.exists(jCDebitAppTransactionFolder):
-            os.makedirs(jCDebitAppTransactionFolder)
+        jCDebitAppTransactionFolder = create_named_subfolder("JC Debit App Transaction", abbreviated_month, year)
+        jCDebitCardTransactionFolder = create_named_subfolder("JC Debit Card Transaction", abbreviated_month, year)
+        jCDebitCashTransactionFolder = create_named_subfolder("JC Debit Cash Transaction", abbreviated_month, year)
 
-        jCDebitCardTransactionFolder = f"JC Debit Card Transaction {abbreviated_month} {year}"
-        if not os.path.exists(jCDebitCardTransactionFolder):
-            os.makedirs(jCDebitCardTransactionFolder)
-
-        jCDebitCashTransactionFolder = f"JC Debit Cash Transaction {abbreviated_month} {year}"
-        if not os.path.exists(jCDebitCashTransactionFolder):
-            os.makedirs(jCDebitCashTransactionFolder)
 
         # Creating Mashreq Receipt Folder
-        mQCreditReceiptFolder = f"MQ Credit Receipt {abbreviated_month} {year}"
-        if not os.path.exists(mQCreditReceiptFolder):
-            os.makedirs(mQCreditReceiptFolder)
-
-        mQDebitReceiptFolder = f"MQ Debit Receipt {abbreviated_month} {year}"
-        if not os.path.exists(mQDebitReceiptFolder):
-            os.makedirs(mQDebitReceiptFolder)
+        mQCreditReceiptFolder = create_named_subfolder("MQ Credit Receipt", abbreviated_month, year)
+        mQDebitReceiptFolder = create_named_subfolder("MQ Debit Receipt", abbreviated_month, year)
 
         # Creating Mashreq Credit Receipts Folder
-        mQCreditAppTransactionFolder = f"MQ Credit App Transaction {abbreviated_month} {year}"
-        if not os.path.exists(mQCreditAppTransactionFolder):
-            os.makedirs(mQCreditAppTransactionFolder)
-
-        mQCreditCardTransactionFolder = f"MQ Credit Card Transaction {abbreviated_month} {year}"
-        if not os.path.exists(mQCreditCardTransactionFolder):
-            os.makedirs(mQCreditCardTransactionFolder)
-
-        mQCreditCashTransactionFolder = f"MQ Credit Cash Transaction {abbreviated_month} {year}"
-        if not os.path.exists(mQCreditCashTransactionFolder):
-            os.makedirs(mQCreditCashTransactionFolder)
+        mQCreditAppTransactionFolder = create_named_subfolder("MQ Credit App Transaction", abbreviated_month, year)
+        mQCreditCardTransactionFolder = create_named_subfolder("MQ Credit Card Transaction", abbreviated_month, year)
+        mQCreditCashTransactionFolder = create_named_subfolder("MQ Credit Cash Transaction", abbreviated_month, year)
 
         # Creating Mashreq Debit Receipts Folder
-        mQDebitAppTransactionFolder = f"MQ Debit App Transaction {abbreviated_month} {year}"
-        if not os.path.exists(mQDebitAppTransactionFolder):
-            os.makedirs(mQDebitAppTransactionFolder)
-
-        mQDebitCardTransactionFolder = f"MQ Debit Card Transaction {abbreviated_month} {year}"
-        if not os.path.exists(mQDebitCardTransactionFolder):
-            os.makedirs(mQDebitCardTransactionFolder)
-
-        mQDebitCashTransactionFolder = f"MQ Debit Cash Transaction {abbreviated_month} {year}"
-        if not os.path.exists(mQDebitCashTransactionFolder):
-            os.makedirs(mQDebitCashTransactionFolder)
+        mQDebitAppTransactionFolder = create_named_subfolder("MQ Debit App Transaction", abbreviated_month, year)
+        mQDebitCardTransactionFolder = create_named_subfolder("MQ Debit Card Transaction", abbreviated_month, year)
+        mQDebitCashTransactionFolder = create_named_subfolder("MQ Debit Cash Transaction", abbreviated_month, year)
 
 
-        # Creating Meezan Bank Receipt Folders
-        mBCreditCardEStatementFolder = f"MB Credit Card E Statement {abbreviated_month} {year}"
-        if not os.path.exists(mBCreditCardEStatementFolder):
-            os.makedirs(mBCreditCardEStatementFolder)
-
-        mBCreditReceiptFolder = f"MB Credit Receipt {abbreviated_month} {year}"
-        if not os.path.exists(mBCreditReceiptFolder):
-            os.makedirs(mBCreditReceiptFolder)
-
-        mBDebitCardEStatementFolder = f"MB Debit Card E Statement {abbreviated_month} {year}"
-        if not os.path.exists(mBDebitCardEStatementFolder):
-            os.makedirs(mBDebitCardEStatementFolder)
-
-        mBDebitReceiptFolder = f"MB Debit Receipt {abbreviated_month} {year}"
-        if not os.path.exists(mBDebitReceiptFolder):
-            os.makedirs(mBDebitReceiptFolder)
+        # Creating Meezan Bank Receipt Folder
+        mBCreditCardEStatementFolder = create_named_subfolder("MB Credit Card E Statement", abbreviated_month, year)
+        mBCreditReceiptFolder = create_named_subfolder("MB Credit Receipt", abbreviated_month, year)
+        mBDebitCardEStatementFolder = create_named_subfolder("MB Debit Card E Statement", abbreviated_month, year)
+        mBDebitReceiptFolder = create_named_subfolder("MB Debit Receipt", abbreviated_month, year)
 
         # Creating Meezan Bank Credit Receipts Folder
-        mBCreditAppTransactionFolder = f"MB Credit App Transaction {abbreviated_month} {year}"
-        if not os.path.exists(mBCreditAppTransactionFolder):
-            os.makedirs(mBCreditAppTransactionFolder)
-
-        mBCreditCardTransactionFolder = f"MB Credit Card Transaction {abbreviated_month} {year}"
-        if not os.path.exists(mBCreditCardTransactionFolder):
-            os.makedirs(mBCreditCardTransactionFolder)
-
-        mBCreditCashTransactionFolder = f"MB Credit Cash Transaction {abbreviated_month} {year}"
-        if not os.path.exists(mBCreditCashTransactionFolder):
-            os.makedirs(mBCreditCashTransactionFolder)
+        mBCreditAppTransactionFolder = create_named_subfolder("MB Credit App Transaction", abbreviated_month, year)
+        mBCreditCardTransactionFolder = create_named_subfolder("MB Credit Card Transaction", abbreviated_month, year)
+        mBCreditCashTransactionFolder = create_named_subfolder("MB Credit Cash Transaction", abbreviated_month, year)
 
         # Creating Meezan Bank Debit Receipts Folder
-        mBDebitAppTransactionFolder = f"MB Debit App Transaction {abbreviated_month} {year}"
-        if not os.path.exists(mBDebitAppTransactionFolder):
-            os.makedirs(mBDebitAppTransactionFolder)
-
-        mBDebitCardTransactionFolder = f"MB Debit Card Transaction {abbreviated_month} {year}"
-        if not os.path.exists(mBDebitCardTransactionFolder):
-            os.makedirs(mBDebitCardTransactionFolder)
-
-        mBDebitCashTransactionFolder = f"MB Debit Cash Transaction {abbreviated_month} {year}"
-        if not os.path.exists(mBDebitCashTransactionFolder):
-            os.makedirs(mBDebitCashTransactionFolder)
+        mBDebitAppTransactionFolder = create_named_subfolder("MB Debit App Transaction", abbreviated_month, year)
+        mBDebitCardTransactionFolder = create_named_subfolder("MB Debit Card Transaction", abbreviated_month, year)
+        mBDebitCashTransactionFolder = create_named_subfolder("MB Debit Cash Transaction", abbreviated_month, year)
 
 
         # Creating NayaPay Receipt Folder
-        nPCreditReceiptFolder = f"NP Credit Receipt {abbreviated_month} {year}"
-        if not os.path.exists(nPCreditReceiptFolder):
-            os.makedirs(nPCreditReceiptFolder)
-
-        nPDebitReceiptFolder = f"NP Debit Receipt {abbreviated_month} {year}"
-        if not os.path.exists(nPDebitReceiptFolder):
-            os.makedirs(nPDebitReceiptFolder)
+        nPCreditReceiptFolder = create_named_subfolder("NP Credit Receipt", abbreviated_month, year)
+        nPDebitReceiptFolder = create_named_subfolder("NP Debit Receipt", abbreviated_month, year)
 
         # Creating NayaPay Credit Receipts Folder
-        nPCreditAppTransactionFolder = f"NP Credit App Transaction {abbreviated_month} {year}"
-        if not os.path.exists(nPCreditAppTransactionFolder):
-            os.makedirs(nPCreditAppTransactionFolder)
-
-        nPCreditCardTransactionFolder = f"NP Credit Card Transaction {abbreviated_month} {year}"
-        if not os.path.exists(nPCreditCardTransactionFolder):
-            os.makedirs(nPCreditCardTransactionFolder)
-
-        nPCreditCashTransactionFolder = f"NP Credit Cash Transaction {abbreviated_month} {year}"
-        if not os.path.exists(nPCreditCashTransactionFolder):
-            os.makedirs(nPCreditCashTransactionFolder)
+        nPCreditAppTransactionFolder = create_named_subfolder("NP Credit App Transaction", abbreviated_month, year)
+        nPCreditCardTransactionFolder = create_named_subfolder("NP Credit Card Transaction", abbreviated_month, year)
+        nPCreditCashTransactionFolder = create_named_subfolder("NP Credit Cash Transaction", abbreviated_month, year)
 
         # Creating NayaPay Debit Receipts Folder
-        nPDebitAppTransactionFolder = f"NP Debit App Transaction {abbreviated_month} {year}"
-        if not os.path.exists(nPDebitAppTransactionFolder):
-            os.makedirs(nPDebitAppTransactionFolder)
-
-        nPDebitCardTransactionFolder = f"NP Debit Card Transaction {abbreviated_month} {year}"
-        if not os.path.exists(nPDebitCardTransactionFolder):
-            os.makedirs(nPDebitCardTransactionFolder)
-
-        nPDebitCashTransactionFolder = f"NP Debit Cash Transaction {abbreviated_month} {year}"
-        if not os.path.exists(nPDebitCashTransactionFolder):
-            os.makedirs(nPDebitCashTransactionFolder)
+        nPDebitAppTransactionFolder = create_named_subfolder("NP Debit App Transaction", abbreviated_month, year)
+        nPDebitCardTransactionFolder = create_named_subfolder("NP Debit Card Transaction", abbreviated_month, year)
+        nPDebitCashTransactionFolder = create_named_subfolder("NP Debit Cash Transaction", abbreviated_month, year)
 
 
         # Creating SadaPay Receipt Folder
-        sPCreditReceiptFolder = f"SP Credit Receipt {abbreviated_month} {year}"
-        if not os.path.exists(sPCreditReceiptFolder):
-            os.makedirs(sPCreditReceiptFolder)
-
-        sPDebitReceiptFolder = f"SP Debit Receipt {abbreviated_month} {year}"
-        if not os.path.exists(sPDebitReceiptFolder):
-            os.makedirs(sPDebitReceiptFolder)
+        sPCreditReceiptFolder = create_named_subfolder("SP Credit Receipt", abbreviated_month, year)
+        sPDebitReceiptFolder = create_named_subfolder("SP Debit Receipt", abbreviated_month, year)
 
         # Creating SadaPay Credit Receipts Folder
-        sPCreditAppTransactionFolder = f"SP Credit App Transaction {abbreviated_month} {year}"
-        if not os.path.exists(sPCreditAppTransactionFolder):
-            os.makedirs(sPCreditAppTransactionFolder)
-
-        sPCreditCardTransactionFolder = f"SP Credit Card Transaction {abbreviated_month} {year}"
-        if not os.path.exists(sPCreditCardTransactionFolder):
-            os.makedirs(sPCreditCardTransactionFolder)
-
-        sPCreditCashTransactionFolder = f"SP Credit Cash Transaction {abbreviated_month} {year}"
-        if not os.path.exists(sPCreditCashTransactionFolder):
-            os.makedirs(sPCreditCashTransactionFolder)
+        sPCreditAppTransactionFolder = create_named_subfolder("SP Credit App Transaction", abbreviated_month, year)
+        sPCreditCardTransactionFolder = create_named_subfolder("SP Credit Card Transaction", abbreviated_month, year)
+        sPCreditCashTransactionFolder = create_named_subfolder("SP Credit Cash Transaction", abbreviated_month, year)
 
         # Creating SadaPay Debit Receipts Folder
-        sPDebitAppTransactionFolder = f"SP Debit App Transaction {abbreviated_month} {year}"
-        if not os.path.exists(sPDebitAppTransactionFolder):
-            os.makedirs(sPDebitAppTransactionFolder)
-
-        sPDebitCardTransactionFolder = f"SP Debit Card Transaction {abbreviated_month} {year}"
-        if not os.path.exists(sPDebitCardTransactionFolder):
-            os.makedirs(sPDebitCardTransactionFolder)
-
-        sPDebitCashTransactionFolder = f"SP Debit Cash Transaction {abbreviated_month} {year}"
-        if not os.path.exists(sPDebitCashTransactionFolder):
-            os.makedirs(sPDebitCashTransactionFolder)
+        sPDebitAppTransactionFolder = create_named_subfolder("SP Debit App Transaction", abbreviated_month, year)
+        sPDebitCardTransactionFolder = create_named_subfolder("SP Debit Card Transaction", abbreviated_month, year)
+        sPDebitCashTransactionFolder = create_named_subfolder("SP Debit Cash Transaction", abbreviated_month, year)
 
 
         # Creating Standard Chartered Bank Receipt Folders
-        sCBCreditCardEStatementFolder = f"SCB Credit Card E Statement {abbreviated_month} {year}"
-        if not os.path.exists(sCBCreditCardEStatementFolder):
-            os.makedirs(sCBCreditCardEStatementFolder)
-
-        sCBCreditReceiptFolder = f"SCB Credit Receipt {abbreviated_month} {year}"
-        if not os.path.exists(sCBCreditReceiptFolder):
-            os.makedirs(sCBCreditReceiptFolder)
-
-        sCBDebitCardEStatementFolder = f"SCB Debit Card E Statement {abbreviated_month} {year}"
-        if not os.path.exists(sCBDebitCardEStatementFolder):
-            os.makedirs(sCBDebitCardEStatementFolder)
-
-        sCBDebitReceiptFolder = f"SCB Debit Receipt {abbreviated_month} {year}"
-        if not os.path.exists(sCBDebitReceiptFolder):
-            os.makedirs(sCBDebitReceiptFolder)
+        sCBCreditCardEStatementFolder = create_named_subfolder("SCB Credit Card E Statement", abbreviated_month, year)
+        sCBCreditReceiptFolder = create_named_subfolder("SCB Credit Receipt", abbreviated_month, year)
+        sCBDebitCardEStatementFolder = create_named_subfolder("SCB Debit Card E Statement", abbreviated_month, year)
+        sCBDebitReceiptFolder = create_named_subfolder("SCB Debit Receipt", abbreviated_month, year)
 
         # Creating Standard Chartered Bank Credit Receipts Folder
-        sCBCreditAppTransactionFolder = f"SCB Credit App Transaction {abbreviated_month} {year}"
-        if not os.path.exists(sCBCreditAppTransactionFolder):
-            os.makedirs(sCBCreditAppTransactionFolder)
-
-        sCBCreditCardTransactionFolder = f"SCB Credit Card Transaction {abbreviated_month} {year}"
-        if not os.path.exists(sCBCreditCardTransactionFolder):
-            os.makedirs(sCBCreditCardTransactionFolder)
-
-        sCBCreditCashTransactionFolder = f"SCB Credit Cash Transaction {abbreviated_month} {year}"
-        if not os.path.exists(sCBCreditCashTransactionFolder):
-            os.makedirs(sCBCreditCashTransactionFolder)
+        sCBCreditAppTransactionFolder = create_named_subfolder("SCB Credit App Transaction", abbreviated_month, year)
+        sCBCreditCardTransactionFolder = create_named_subfolder("SCB Credit Card Transaction", abbreviated_month, year)
+        sCBCreditCashTransactionFolder = create_named_subfolder("SCB Credit Cash Transaction", abbreviated_month, year)
 
         # Creating Standard Chartered Bank Debit Receipts Folder
-        sCBDebitAppTransactionFolder = f"SCB Debit App Transaction {abbreviated_month} {year}"
-        if not os.path.exists(sCBDebitAppTransactionFolder):
-            os.makedirs(sCBDebitAppTransactionFolder)
-
-        sCBDebitCardTransactionFolder = f"SCB Debit Card Transaction {abbreviated_month} {year}"
-        if not os.path.exists(sCBDebitCardTransactionFolder):
-            os.makedirs(sCBDebitCardTransactionFolder)
-
-        sCBDebitCashTransactionFolder = f"SCB Debit Cash Transaction {abbreviated_month} {year}"
-        if not os.path.exists(sCBDebitCashTransactionFolder):
-            os.makedirs(sCBDebitCashTransactionFolder)
+        sCBDebitAppTransactionFolder = create_named_subfolder("SCB Debit App Transaction", abbreviated_month, year)
+        sCBDebitCardTransactionFolder = create_named_subfolder("SCB Debit Card Transaction", abbreviated_month, year)
+        sCBDebitCashTransactionFolder = create_named_subfolder("SCB Debit Cash Transaction", abbreviated_month, year)
 
 
         # Creating Upaisa Receipt Folder
-        uPCreditReceiptFolder = f"UP Credit Receipt {abbreviated_month} {year}"
-        if not os.path.exists(uPCreditReceiptFolder):
-            os.makedirs(uPCreditReceiptFolder)
-
-        uPDebitReceiptFolder = f"UP Debit Receipt {abbreviated_month} {year}"
-        if not os.path.exists(uPDebitReceiptFolder):
-            os.makedirs(uPDebitReceiptFolder)
+        uPCreditReceiptFolder = create_named_subfolder("UP Credit Receipt", abbreviated_month, year)
+        uPDebitReceiptFolder = create_named_subfolder("UP Debit Receipt", abbreviated_month, year)
 
         # Creating Upaisa Credit Receipts Folder
-        uPCreditAppTransactionFolder = f"UP Credit App Transaction {abbreviated_month} {year}"
-        if not os.path.exists(uPCreditAppTransactionFolder):
-            os.makedirs(uPCreditAppTransactionFolder)
-
-        uPCreditCardTransactionFolder = f"UP Credit Card Transaction {abbreviated_month} {year}"
-        if not os.path.exists(uPCreditCardTransactionFolder):
-            os.makedirs(uPCreditCardTransactionFolder)
-
-        uPCreditCashTransactionFolder = f"UP Credit Cash Transaction {abbreviated_month} {year}"
-        if not os.path.exists(uPCreditCashTransactionFolder):
-            os.makedirs(uPCreditCashTransactionFolder)
+        uPCreditAppTransactionFolder = create_named_subfolder("UP Credit App Transaction", abbreviated_month, year)
+        uPCreditCardTransactionFolder = create_named_subfolder("UP Credit Card Transaction", abbreviated_month, year)
+        uPCreditCashTransactionFolder = create_named_subfolder("UP Credit Cash Transaction", abbreviated_month, year)
 
         # Creating Upaisa Debit Receipts Folder
-        uPDebitAppTransactionFolder = f"UP Debit App Transaction {abbreviated_month} {year}"
-        if not os.path.exists(uPDebitAppTransactionFolder):
-            os.makedirs(uPDebitAppTransactionFolder)
+        uPDebitAppTransactionFolder = create_named_subfolder("UP Debit App Transaction", abbreviated_month, year)
+        uPDebitCardTransactionFolder = create_named_subfolder("UP Debit Card Transaction", abbreviated_month, year)
+        uPDebitCashTransactionFolder = create_named_subfolder("UP Debit Cash Transaction", abbreviated_month, year)
 
-        uPDebitCardTransactionFolder = f"UP Debit Card Transaction {abbreviated_month} {year}"
-        if not os.path.exists(uPDebitCardTransactionFolder):
-            os.makedirs(uPDebitCardTransactionFolder)
-
-        uPDebitCashTransactionFolder = f"UP Debit Cash Transaction {abbreviated_month} {year}"
-        if not os.path.exists(uPDebitCashTransactionFolder):
-            os.makedirs(uPDebitCashTransactionFolder)
 
         # Creating Zindigi Receipt Folder
-        zICreditReceiptFolder = f"ZI Credit Receipt {abbreviated_month} {year}"
-        if not os.path.exists(zICreditReceiptFolder):
-            os.makedirs(zICreditReceiptFolder)
-
-        zIDebitReceiptFolder = f"ZI Debit Receipt {abbreviated_month} {year}"
-        if not os.path.exists(zIDebitReceiptFolder):
-            os.makedirs(zIDebitReceiptFolder)
+        zICreditReceiptFolder = create_named_subfolder("ZI Credit Receipt", abbreviated_month, year)
+        zIDebitReceiptFolder = create_named_subfolder("ZI Debit Receipt", abbreviated_month, year)
 
         # Creating Zindigi Credit Receipts Folder
-        zICreditAppTransactionFolder = f"ZI Credit App Transaction {abbreviated_month} {year}"
-        if not os.path.exists(zICreditAppTransactionFolder):
-            os.makedirs(zICreditAppTransactionFolder)
-
-        zICreditCardTransactionFolder = f"ZI Credit Card Transaction {abbreviated_month} {year}"
-        if not os.path.exists(zICreditCardTransactionFolder):
-            os.makedirs(zICreditCardTransactionFolder)
-
-        zICreditCashTransactionFolder = f"ZI Credit Cash Transaction {abbreviated_month} {year}"
-        if not os.path.exists(zICreditCashTransactionFolder):
-            os.makedirs(zICreditCashTransactionFolder)
+        zICreditAppTransactionFolder = create_named_subfolder("ZI Credit App Transaction", abbreviated_month, year)
+        zICreditCardTransactionFolder = create_named_subfolder("ZI Credit Card Transaction", abbreviated_month, year)
+        zICreditCashTransactionFolder = create_named_subfolder("ZI Credit Cash Transaction", abbreviated_month, year)
 
         # Creating Zindigi Debit Receipts Folder
-        zIDebitAppTransactionFolder = f"ZI Debit App Transaction {abbreviated_month} {year}"
-        if not os.path.exists(zIDebitAppTransactionFolder):
-            os.makedirs(zIDebitAppTransactionFolder)
-
-        zIDebitCardTransactionFolder = f"ZI Debit Card Transaction {abbreviated_month} {year}"
-        if not os.path.exists(zIDebitCardTransactionFolder):
-            os.makedirs(zIDebitCardTransactionFolder)
-
-        zIDebitCashTransactionFolder = f"ZI Debit Cash Transaction {abbreviated_month} {year}"
-        if not os.path.exists(zIDebitCashTransactionFolder):
-            os.makedirs(zIDebitCashTransactionFolder)
+        zIDebitAppTransactionFolder = create_named_subfolder("ZI Debit App Transaction", abbreviated_month, year)
+        zIDebitCardTransactionFolder = create_named_subfolder("ZI Debit Card Transaction", abbreviated_month, year)
+        zIDebitCashTransactionFolder = create_named_subfolder("ZI Debit Cash Transaction", abbreviated_month, year)
 
 
         # Creating Trading Receipt Folder
-        cDCReceiptFolder = f"CDC Receipt {abbreviated_month} {year}"
-        if not os.path.exists(cDCReceiptFolder):
-            os.makedirs(cDCReceiptFolder)
+        cDCReceiptFolder = create_named_subfolder("CDC Receipt", abbreviated_month, year)
+        cGTReceiptFolder = create_named_subfolder("CGT Receipt", abbreviated_month, year)
+        kTradeReceiptFolder = create_named_subfolder("KTrade Receipt", abbreviated_month, year)
 
-        cGTReceiptFolder = f"CGT Receipt {abbreviated_month} {year}"
-        if not os.path.exists(cGTReceiptFolder):
-            os.makedirs(cGTReceiptFolder)
-
-        kTradeReceiptFolder = f"KTrade Receipt {abbreviated_month} {year}"
-        if not os.path.exists(kTradeReceiptFolder):
-            os.makedirs(kTradeReceiptFolder)
-
-        # Creating KTrade Dividend Statement
-        kTradeDividendStatementFolder = f"KTrade Dividend Statement {abbreviated_month} {year}"
-        if not os.path.exists(kTradeDividendStatementFolder):
-            os.makedirs(kTradeDividendStatementFolder)
-
-        # Creating KTrade E Statement Folder
-        kTradeEStatementFolder = f"KTrade E Statement {abbreviated_month} {year}"
-        if not os.path.exists(kTradeEStatementFolder):
-            os.makedirs(kTradeEStatementFolder)
-
-        # Creating KTrade Trade Confirmation Folder
-        kTradeTradeConfirmationFolder = f"KTrade Trade Confirmation {abbreviated_month} {year}"
-        if not os.path.exists(kTradeTradeConfirmationFolder):
-            os.makedirs(kTradeTradeConfirmationFolder)
+        # Creating KTrade Receipt Folder
+        kTradeDividendStatementFolder = create_named_subfolder("KTrade Dividend Statement", abbreviated_month, year)
+        kTradeEStatementFolder = create_named_subfolder("KTrade E Statement", abbreviated_month, year)
+        kTradeTradeConfirmationFolder = create_named_subfolder("KTrade Trade Confirmation", abbreviated_month, year)
 
 
         # Moving Allied Bank Credit Receipts into Allied Bank Credit Receipts Folder
-        if os.path.exists(aBCreditAppTransactionFolder):
-            shutil.move(aBCreditAppTransactionFolder, aBCreditReceiptFolder)
-
-        if os.path.exists(aBCreditCardTransactionFolder):
-            shutil.move(aBCreditCardTransactionFolder, aBCreditReceiptFolder)
-
-        if os.path.exists(aBCreditCashTransactionFolder):
-            shutil.move(aBCreditCashTransactionFolder, aBCreditReceiptFolder)
+        move_folder_if_exists(aBCreditAppTransactionFolder, aBCreditReceiptFolder)
+        move_folder_if_exists(aBCreditCardTransactionFolder, aBCreditReceiptFolder)
+        move_folder_if_exists(aBCreditCashTransactionFolder, aBCreditReceiptFolder)
 
         # Moving Allied Bank Debit Receipts into Allied Bank Debit Receipts Folder
-        if os.path.exists(aBDebitAppTransactionFolder):
-            shutil.move(aBDebitAppTransactionFolder, aBDebitReceiptFolder)
-
-        if os.path.exists(aBDebitCardTransactionFolder):
-            shutil.move(aBDebitCardTransactionFolder, aBDebitReceiptFolder)
-
-        if os.path.exists(aBDebitCashTransactionFolder):
-            shutil.move(aBDebitCashTransactionFolder, aBDebitReceiptFolder)
+        move_folder_if_exists(aBDebitAppTransactionFolder, aBDebitReceiptFolder)
+        move_folder_if_exists(aBDebitCardTransactionFolder, aBDebitReceiptFolder)
+        move_folder_if_exists(aBDebitCashTransactionFolder, aBDebitReceiptFolder)
 
         # Moving Allied Bank Receipts into Allied Bank Folder
-        if os.path.exists(aBCreditCardEStatementFolder):
-            shutil.move(aBCreditCardEStatementFolder, alliedBankReceiptsFolder)
-        if os.path.exists(aBCreditReceiptFolder):
-            shutil.move(aBCreditReceiptFolder, alliedBankReceiptsFolder)
-        if os.path.exists(aBDebitCardEStatementFolder):
-            shutil.move(aBDebitCardEStatementFolder, alliedBankReceiptsFolder)
-        if os.path.exists(aBDebitReceiptFolder):
-            shutil.move(aBDebitReceiptFolder, alliedBankReceiptsFolder)
-
+        move_folder_if_exists(aBCreditCardEStatementFolder, alliedBankReceiptsFolder)
+        move_folder_if_exists(aBCreditReceiptFolder, alliedBankReceiptsFolder)
+        move_folder_if_exists(aBDebitCardEStatementFolder, alliedBankReceiptsFolder)
+        move_folder_if_exists(aBDebitReceiptFolder, alliedBankReceiptsFolder)
 
         # Moving Bank Alfalah Credit Receipts into Bank Alfalah Credit Receipts Folder
-        if os.path.exists(bACreditAppTransactionFolder):
-            shutil.move(bACreditAppTransactionFolder, bACreditReceiptFolder)
-
-        if os.path.exists(bACreditCardTransactionFolder):
-            shutil.move(bACreditCardTransactionFolder, bACreditReceiptFolder)
-
-        if os.path.exists(bACreditCashTransactionFolder):
-            shutil.move(bACreditCashTransactionFolder, bACreditReceiptFolder)
+        move_folder_if_exists(bACreditAppTransactionFolder, bACreditReceiptFolder)
+        move_folder_if_exists(bACreditCardTransactionFolder, bACreditReceiptFolder)
+        move_folder_if_exists(bACreditCashTransactionFolder, bACreditReceiptFolder)
 
         # Moving Bank Alfalah Debit Receipts into Bank Alfalah Debit Receipts Folder
-        if os.path.exists(bADebitAppTransactionFolder):
-            shutil.move(bADebitAppTransactionFolder, bADebitReceiptFolder)
-
-        if os.path.exists(bADebitCardTransactionFolder):
-            shutil.move(bADebitCardTransactionFolder, bADebitReceiptFolder)
-
-        if os.path.exists(bADebitCashTransactionFolder):
-            shutil.move(bADebitCashTransactionFolder, bADebitReceiptFolder)
+        move_folder_if_exists(bADebitAppTransactionFolder, bADebitReceiptFolder)
+        move_folder_if_exists(bADebitCardTransactionFolder, bADebitReceiptFolder)
+        move_folder_if_exists(bADebitCashTransactionFolder, bADebitReceiptFolder)
 
         # Moving Bank Alfalah Receipts into Bank Alfalah Folder
-        if os.path.exists(bACreditCardEStatementFolder):
-            shutil.move(bACreditCardEStatementFolder, bankAlfalahReceiptsFolder)
-        if os.path.exists(bACreditReceiptFolder):
-            shutil.move(bACreditReceiptFolder, bankAlfalahReceiptsFolder)
-        if os.path.exists(bADebitCardEStatementFolder):
-            shutil.move(bADebitCardEStatementFolder, bankAlfalahReceiptsFolder)
-        if os.path.exists(bADebitReceiptFolder):
-            shutil.move(bADebitReceiptFolder, bankAlfalahReceiptsFolder)
-        if os.path.exists(bAOrbitStatementFolder):
-            shutil.move(bAOrbitStatementFolder, bankAlfalahReceiptsFolder)
-
+        move_folder_if_exists(bACreditCardEStatementFolder, bankAlfalahReceiptsFolder)
+        move_folder_if_exists(bACreditReceiptFolder, bankAlfalahReceiptsFolder)
+        move_folder_if_exists(bADebitCardEStatementFolder, bankAlfalahReceiptsFolder)
+        move_folder_if_exists(bADebitReceiptFolder, bankAlfalahReceiptsFolder)
+        move_folder_if_exists(bAOrbitStatementFolder, bankAlfalahReceiptsFolder)
 
         # Moving EasyPaissa Credit Receipts into EasyPaissa Credit Receipts Folder
-        if os.path.exists(ePCreditAppTransactionFolder):
-            shutil.move(ePCreditAppTransactionFolder, ePCreditReceiptFolder)
-
-        if os.path.exists(ePCreditCardTransactionFolder):
-            shutil.move(ePCreditCardTransactionFolder, ePCreditReceiptFolder)
-
-        if os.path.exists(ePCreditCashTransactionFolder):
-            shutil.move(ePCreditCashTransactionFolder, ePCreditReceiptFolder)
+        move_folder_if_exists(ePCreditAppTransactionFolder, ePCreditReceiptFolder)
+        move_folder_if_exists(ePCreditCardTransactionFolder, ePCreditReceiptFolder)
+        move_folder_if_exists(ePCreditCashTransactionFolder, ePCreditReceiptFolder)
 
         # Moving EasyPaissa Debit Receipts into EasyPaissa Debit Receipts Folder
-        if os.path.exists(ePDebitAppTransactionFolder):
-            shutil.move(ePDebitAppTransactionFolder, ePDebitReceiptFolder)
-
-        if os.path.exists(ePDebitCardTransactionFolder):
-            shutil.move(ePDebitCardTransactionFolder, ePDebitReceiptFolder)
-
-        if os.path.exists(ePDebitCashTransactionFolder):
-            shutil.move(ePDebitCashTransactionFolder, ePDebitReceiptFolder)
+        move_folder_if_exists(ePDebitAppTransactionFolder, ePDebitReceiptFolder)
+        move_folder_if_exists(ePDebitCardTransactionFolder, ePDebitReceiptFolder)
+        move_folder_if_exists(ePDebitCashTransactionFolder, ePDebitReceiptFolder)
 
         # Moving EasyPaissa Receipts into EasyPaissa Folder
-        if os.path.exists(ePCreditReceiptFolder):
-            shutil.move(ePCreditReceiptFolder, easyPaissaReceiptsFolder)
-
-        if os.path.exists(ePDebitReceiptFolder):
-            shutil.move(ePDebitReceiptFolder, easyPaissaReceiptsFolder)
+        move_folder_if_exists(ePCreditReceiptFolder, easyPaissaReceiptsFolder)
+        move_folder_if_exists(ePDebitReceiptFolder, easyPaissaReceiptsFolder)
 
         # Moving FirstPay Credit Receipts into FirstPay Credit Receipts Folder
-        if os.path.exists(fPCreditAppTransactionFolder):
-            shutil.move(fPCreditAppTransactionFolder, fPCreditReceiptFolder)
-
-        if os.path.exists(fPCreditCardTransactionFolder):
-            shutil.move(fPCreditCardTransactionFolder, fPCreditReceiptFolder)
-
-        if os.path.exists(fPCreditCashTransactionFolder):
-            shutil.move(fPCreditCashTransactionFolder, fPCreditReceiptFolder)
+        move_folder_if_exists(fPCreditAppTransactionFolder, fPCreditReceiptFolder)
+        move_folder_if_exists(fPCreditCardTransactionFolder, fPCreditReceiptFolder)
+        move_folder_if_exists(fPCreditCashTransactionFolder, fPCreditReceiptFolder)
 
         # Moving FirstPay Debit Receipts into FirstPay Debit Receipts Folder
-        if os.path.exists(fPDebitAppTransactionFolder):
-            shutil.move(fPDebitAppTransactionFolder, fPDebitReceiptFolder)
-
-        if os.path.exists(fPDebitCardTransactionFolder):
-            shutil.move(fPDebitCardTransactionFolder, fPDebitReceiptFolder)
-
-        if os.path.exists(fPDebitCashTransactionFolder):
-            shutil.move(fPDebitCashTransactionFolder, fPDebitReceiptFolder)
+        move_folder_if_exists(fPDebitAppTransactionFolder, fPDebitReceiptFolder)
+        move_folder_if_exists(fPDebitCardTransactionFolder, fPDebitReceiptFolder)
+        move_folder_if_exists(fPDebitCashTransactionFolder, fPDebitReceiptFolder)
 
         # Moving FirstPay Receipts into FirstPay Folder
-        if os.path.exists(fPCreditReceiptFolder):
-            shutil.move(fPCreditReceiptFolder, firstPayReceiptsFolder)
-
-        if os.path.exists(fPDebitReceiptFolder):
-            shutil.move(fPDebitReceiptFolder, firstPayReceiptsFolder)
-
+        move_folder_if_exists(fPCreditReceiptFolder, firstPayReceiptsFolder)
+        move_folder_if_exists(fPDebitReceiptFolder, firstPayReceiptsFolder)
 
         # Moving JazzCash Credit Receipts into JazzCash Credit Receipts Folder
-        if os.path.exists(jCCreditAppTransactionFolder):
-            shutil.move(jCCreditAppTransactionFolder, jCCreditReceiptFolder)
-
-        if os.path.exists(jCCreditCardTransactionFolder):
-            shutil.move(jCCreditCardTransactionFolder, jCCreditReceiptFolder)
-
-        if os.path.exists(jCCreditCashTransactionFolder):
-            shutil.move(jCCreditCashTransactionFolder, jCCreditReceiptFolder)
+        move_folder_if_exists(jCCreditAppTransactionFolder, jCCreditReceiptFolder)
+        move_folder_if_exists(jCCreditCardTransactionFolder, jCCreditReceiptFolder)
+        move_folder_if_exists(jCCreditCashTransactionFolder, jCCreditReceiptFolder)
 
         # Moving JazzCash Debit Receipts into JazzCash Debit Receipts Folder
-        if os.path.exists(jCDebitAppTransactionFolder):
-            shutil.move(jCDebitAppTransactionFolder, jCDebitReceiptFolder)
-
-        if os.path.exists(jCDebitCardTransactionFolder):
-            shutil.move(jCDebitCardTransactionFolder, jCDebitReceiptFolder)
-
-        if os.path.exists(jCDebitCashTransactionFolder):
-            shutil.move(jCDebitCashTransactionFolder, jCDebitReceiptFolder)
+        move_folder_if_exists(jCDebitAppTransactionFolder, jCDebitReceiptFolder)
+        move_folder_if_exists(jCDebitCardTransactionFolder, jCDebitReceiptFolder)
+        move_folder_if_exists(jCDebitCashTransactionFolder, jCDebitReceiptFolder)
 
         # Moving JazzCash Receipts into JazzCash Folder
-        if os.path.exists(jCCreditReceiptFolder):
-            shutil.move(jCCreditReceiptFolder, jazzCashReceiptsFolder)
-
-        if os.path.exists(jCDebitReceiptFolder):
-            shutil.move(jCDebitReceiptFolder, jazzCashReceiptsFolder)
+        move_folder_if_exists(jCCreditReceiptFolder, jazzCashReceiptsFolder)
+        move_folder_if_exists(jCDebitReceiptFolder, jazzCashReceiptsFolder)
 
         # Moving Mashreq Credit Receipts into Mashreq Credit Receipts Folder
-        if os.path.exists(mQCreditAppTransactionFolder):
-            shutil.move(mQCreditAppTransactionFolder, mQCreditReceiptFolder)
-
-        if os.path.exists(mQCreditCardTransactionFolder):
-            shutil.move(mQCreditCardTransactionFolder, mQCreditReceiptFolder)
-
-        if os.path.exists(mQCreditCashTransactionFolder):
-            shutil.move(mQCreditCashTransactionFolder, mQCreditReceiptFolder)
+        move_folder_if_exists(mQCreditAppTransactionFolder, mQCreditReceiptFolder)
+        move_folder_if_exists(mQCreditCardTransactionFolder, mQCreditReceiptFolder)
+        move_folder_if_exists(mQCreditCashTransactionFolder, mQCreditReceiptFolder)
 
         # Moving Mashreq Debit Receipts into Mashreq Debit Receipts Folder
-        if os.path.exists(mQDebitAppTransactionFolder):
-            shutil.move(mQDebitAppTransactionFolder, mQDebitReceiptFolder)
-
-        if os.path.exists(mQDebitCardTransactionFolder):
-            shutil.move(mQDebitCardTransactionFolder, mQDebitReceiptFolder)
-
-        if os.path.exists(mQDebitCashTransactionFolder):
-            shutil.move(mQDebitCashTransactionFolder, mQDebitReceiptFolder)
+        move_folder_if_exists(mQDebitAppTransactionFolder, mQDebitReceiptFolder)
+        move_folder_if_exists(mQDebitCardTransactionFolder, mQDebitReceiptFolder)
+        move_folder_if_exists(mQDebitCashTransactionFolder, mQDebitReceiptFolder)
 
         # Moving Mashreq Receipts into Mashreq Folder
-        if os.path.exists(mQCreditReceiptFolder):
-            shutil.move(mQCreditReceiptFolder, mashreqReceiptsFolder)
-
-        if os.path.exists(mQDebitReceiptFolder):
-            shutil.move(mQDebitReceiptFolder, mashreqReceiptsFolder)
-
+        move_folder_if_exists(mQCreditReceiptFolder, mashreqReceiptsFolder)
+        move_folder_if_exists(mQDebitReceiptFolder, mashreqReceiptsFolder)
 
         # Moving Meezan Bank Credit Receipts into Meezan Bank Credit Receipts Folder
-        if os.path.exists(mBCreditAppTransactionFolder):
-            shutil.move(mBCreditAppTransactionFolder, mBCreditReceiptFolder)
-
-        if os.path.exists(mBCreditCardTransactionFolder):
-            shutil.move(mBCreditCardTransactionFolder, mBCreditReceiptFolder)
-
-        if os.path.exists(mBCreditCashTransactionFolder):
-            shutil.move(mBCreditCashTransactionFolder, mBCreditReceiptFolder)
+        move_folder_if_exists(mBCreditAppTransactionFolder, mBCreditReceiptFolder)
+        move_folder_if_exists(mBCreditCardTransactionFolder, mBCreditReceiptFolder)
+        move_folder_if_exists(mBCreditCashTransactionFolder, mBCreditReceiptFolder)
 
         # Moving Meezan Bank Debit Receipts into Meezan Bank Debit Receipts Folder
-        if os.path.exists(mBDebitAppTransactionFolder):
-            shutil.move(mBDebitAppTransactionFolder, mBDebitReceiptFolder)
-
-        if os.path.exists(mBDebitCardTransactionFolder):
-            shutil.move(mBDebitCardTransactionFolder, mBDebitReceiptFolder)
-
-        if os.path.exists(mBDebitCashTransactionFolder):
-            shutil.move(mBDebitCashTransactionFolder, mBDebitReceiptFolder)
+        move_folder_if_exists(mBDebitAppTransactionFolder, mBDebitReceiptFolder)
+        move_folder_if_exists(mBDebitCardTransactionFolder, mBDebitReceiptFolder)
+        move_folder_if_exists(mBDebitCashTransactionFolder, mBDebitReceiptFolder)
 
         # Moving Meezan Bank Receipts into Meezan Bank Folder
-        if os.path.exists(mBCreditCardEStatementFolder):
-            shutil.move(mBCreditCardEStatementFolder, meezanBankReceiptsFolder)
-        if os.path.exists(mBCreditReceiptFolder):
-            shutil.move(mBCreditReceiptFolder, meezanBankReceiptsFolder)
-        if os.path.exists(mBDebitCardEStatementFolder):
-            shutil.move(mBDebitCardEStatementFolder, meezanBankReceiptsFolder)
-        if os.path.exists(mBDebitReceiptFolder):
-            shutil.move(mBDebitReceiptFolder, meezanBankReceiptsFolder)
-
+        move_folder_if_exists(mBCreditCardEStatementFolder, meezanBankReceiptsFolder)
+        move_folder_if_exists(mBCreditReceiptFolder, meezanBankReceiptsFolder)
+        move_folder_if_exists(mBDebitCardEStatementFolder, meezanBankReceiptsFolder)
+        move_folder_if_exists(mBDebitReceiptFolder, meezanBankReceiptsFolder)
 
         # Moving NayaPay Credit Receipts into NayaPay Credit Receipts Folder
-        if os.path.exists(nPCreditAppTransactionFolder):
-            shutil.move(nPCreditAppTransactionFolder, nPCreditReceiptFolder)
-
-        if os.path.exists(nPCreditCardTransactionFolder):
-            shutil.move(nPCreditCardTransactionFolder, nPCreditReceiptFolder)
-
-        if os.path.exists(nPCreditCashTransactionFolder):
-            shutil.move(nPCreditCashTransactionFolder, nPCreditReceiptFolder)
+        move_folder_if_exists(nPCreditAppTransactionFolder, nPCreditReceiptFolder)
+        move_folder_if_exists(nPCreditCardTransactionFolder, nPCreditReceiptFolder)
+        move_folder_if_exists(nPCreditCashTransactionFolder, nPCreditReceiptFolder)
 
         # Moving NayaPay Debit Receipts into NayaPay Debit Receipts Folder
-        if os.path.exists(nPDebitAppTransactionFolder):
-            shutil.move(nPDebitAppTransactionFolder, nPDebitReceiptFolder)
-
-        if os.path.exists(nPDebitCardTransactionFolder):
-            shutil.move(nPDebitCardTransactionFolder, nPDebitReceiptFolder)
-
-        if os.path.exists(nPDebitCashTransactionFolder):
-            shutil.move(nPDebitCashTransactionFolder, nPDebitReceiptFolder)
+        move_folder_if_exists(nPDebitAppTransactionFolder, nPDebitReceiptFolder)
+        move_folder_if_exists(nPDebitCardTransactionFolder, nPDebitReceiptFolder)
+        move_folder_if_exists(nPDebitCashTransactionFolder, nPDebitReceiptFolder)
 
         # Moving NayaPay Receipts into NayaPay Folder
-        if os.path.exists(nPCreditReceiptFolder):
-            shutil.move(nPCreditReceiptFolder, nayaPayReceiptsFolder)
-
-        if os.path.exists(nPDebitReceiptFolder):
-            shutil.move(nPDebitReceiptFolder, nayaPayReceiptsFolder)
-
+        move_folder_if_exists(nPCreditReceiptFolder, nayaPayReceiptsFolder)
+        move_folder_if_exists(nPDebitReceiptFolder, nayaPayReceiptsFolder)
 
         # Moving SadaPay Credit Receipts into SadaPay Credit Receipts Folder
-        if os.path.exists(sPCreditAppTransactionFolder):
-            shutil.move(sPCreditAppTransactionFolder, sPCreditReceiptFolder)
-
-        if os.path.exists(sPCreditCardTransactionFolder):
-            shutil.move(sPCreditCardTransactionFolder, sPCreditReceiptFolder)
-
-        if os.path.exists(sPCreditCashTransactionFolder):
-            shutil.move(sPCreditCashTransactionFolder, sPCreditReceiptFolder)
+        move_folder_if_exists(sPCreditAppTransactionFolder, sPCreditReceiptFolder)
+        move_folder_if_exists(sPCreditCardTransactionFolder, sPCreditReceiptFolder)
+        move_folder_if_exists(sPCreditCashTransactionFolder, sPCreditReceiptFolder)
 
         # Moving SadaPay Debit Receipts into SadaPay Debit Receipts Folder
-        if os.path.exists(sPDebitAppTransactionFolder):
-            shutil.move(sPDebitAppTransactionFolder, sPDebitReceiptFolder)
-
-        if os.path.exists(sPDebitCardTransactionFolder):
-            shutil.move(sPDebitCardTransactionFolder, sPDebitReceiptFolder)
-
-        if os.path.exists(sPDebitCashTransactionFolder):
-            shutil.move(sPDebitCashTransactionFolder, sPDebitReceiptFolder)
+        move_folder_if_exists(sPDebitAppTransactionFolder, sPDebitReceiptFolder)
+        move_folder_if_exists(sPDebitCardTransactionFolder, sPDebitReceiptFolder)
+        move_folder_if_exists(sPDebitCashTransactionFolder, sPDebitReceiptFolder)
 
         # Moving SadaPay Receipts into SadaPay Folder
-        if os.path.exists(sPCreditReceiptFolder):
-            shutil.move(sPCreditReceiptFolder, sadaPayReceiptsFolder)
-
-        if os.path.exists(sPDebitReceiptFolder):
-            shutil.move(sPDebitReceiptFolder, sadaPayReceiptsFolder)
-
+        move_folder_if_exists(sPCreditReceiptFolder, sadaPayReceiptsFolder)
+        move_folder_if_exists(sPDebitReceiptFolder, sadaPayReceiptsFolder)
 
         # Moving Standard Chartered Bank Credit Receipts into Standard Chartered Bank Credit Receipts Folder
-        if os.path.exists(sCBCreditAppTransactionFolder):
-            shutil.move(sCBCreditAppTransactionFolder, sCBCreditReceiptFolder)
-
-        if os.path.exists(sCBCreditCardTransactionFolder):
-            shutil.move(sCBCreditCardTransactionFolder, sCBCreditReceiptFolder)
-
-        if os.path.exists(sCBCreditCashTransactionFolder):
-            shutil.move(sCBCreditCashTransactionFolder, sCBCreditReceiptFolder)
+        move_folder_if_exists(sCBCreditAppTransactionFolder, sCBCreditReceiptFolder)
+        move_folder_if_exists(sCBCreditCardTransactionFolder, sCBCreditReceiptFolder)
+        move_folder_if_exists(sCBCreditCashTransactionFolder, sCBCreditReceiptFolder)
 
         # Moving Standard Chartered Bank Debit Receipts into Standard Chartered Bank Debit Receipts Folder
-        if os.path.exists(sCBDebitAppTransactionFolder):
-            shutil.move(sCBDebitAppTransactionFolder, sCBDebitReceiptFolder)
-
-        if os.path.exists(sCBDebitCardTransactionFolder):
-            shutil.move(sCBDebitCardTransactionFolder, sCBDebitReceiptFolder)
-
-        if os.path.exists(sCBDebitCashTransactionFolder):
-            shutil.move(sCBDebitCashTransactionFolder, sCBDebitReceiptFolder)
+        move_folder_if_exists(sCBDebitAppTransactionFolder, sCBDebitReceiptFolder)
+        move_folder_if_exists(sCBDebitCardTransactionFolder, sCBDebitReceiptFolder)
+        move_folder_if_exists(sCBDebitCashTransactionFolder, sCBDebitReceiptFolder)
 
         # Moving Standard Chartered Bank Receipts into Standard Chartered Bank Folder
-        if os.path.exists(sCBCreditCardEStatementFolder):
-            shutil.move(sCBCreditCardEStatementFolder, standardCharteredBankReceiptsFolder)
-        if os.path.exists(sCBCreditReceiptFolder):
-            shutil.move(sCBCreditReceiptFolder, standardCharteredBankReceiptsFolder)
-        if os.path.exists(sCBDebitCardEStatementFolder):
-            shutil.move(sCBDebitCardEStatementFolder, standardCharteredBankReceiptsFolder)
-        if os.path.exists(sCBDebitReceiptFolder):
-            shutil.move(sCBDebitReceiptFolder, standardCharteredBankReceiptsFolder)
-
+        move_folder_if_exists(sCBCreditCardEStatementFolder, standardCharteredBankReceiptsFolder)
+        move_folder_if_exists(sCBCreditReceiptFolder, standardCharteredBankReceiptsFolder)
+        move_folder_if_exists(sCBDebitCardEStatementFolder, standardCharteredBankReceiptsFolder)
+        move_folder_if_exists(sCBDebitReceiptFolder, standardCharteredBankReceiptsFolder)
 
         # Moving Upaisa Credit Receipts into Upaisa Credit Receipts Folder
-        if os.path.exists(uPCreditAppTransactionFolder):
-            shutil.move(uPCreditAppTransactionFolder, uPCreditReceiptFolder)
-
-        if os.path.exists(uPCreditCardTransactionFolder):
-            shutil.move(uPCreditCardTransactionFolder, uPCreditReceiptFolder)
-
-        if os.path.exists(uPCreditCashTransactionFolder):
-            shutil.move(uPCreditCashTransactionFolder, uPCreditReceiptFolder)
+        move_folder_if_exists(uPCreditAppTransactionFolder, uPCreditReceiptFolder)
+        move_folder_if_exists(uPCreditCardTransactionFolder, uPCreditReceiptFolder)
+        move_folder_if_exists(uPCreditCashTransactionFolder, uPCreditReceiptFolder)
 
         # Moving Upaisa Debit Receipts into Upaisa Debit Receipts Folder
-        if os.path.exists(uPDebitAppTransactionFolder):
-            shutil.move(uPDebitAppTransactionFolder, uPDebitReceiptFolder)
-
-        if os.path.exists(uPDebitCardTransactionFolder):
-            shutil.move(uPDebitCardTransactionFolder, uPDebitReceiptFolder)
-
-        if os.path.exists(uPDebitCashTransactionFolder):
-            shutil.move(uPDebitCashTransactionFolder, uPDebitReceiptFolder)
+        move_folder_if_exists(uPDebitAppTransactionFolder, uPDebitReceiptFolder)
+        move_folder_if_exists(uPDebitCardTransactionFolder, uPDebitReceiptFolder)
+        move_folder_if_exists(uPDebitCashTransactionFolder, uPDebitReceiptFolder)
 
         # Moving Upaisa Receipts into Upaisa Folder
-        if os.path.exists(uPCreditReceiptFolder):
-            shutil.move(uPCreditReceiptFolder, uPaisaReceiptsFolder)
-
-        if os.path.exists(uPDebitReceiptFolder):
-            shutil.move(uPDebitReceiptFolder, uPaisaReceiptsFolder)
-
+        move_folder_if_exists(uPCreditReceiptFolder, uPaisaReceiptsFolder)
+        move_folder_if_exists(uPDebitReceiptFolder, uPaisaReceiptsFolder)
 
         # Moving Zindigi Credit Receipts into Zindigi Credit Receipts Folder
-        if os.path.exists(zICreditAppTransactionFolder):
-            shutil.move(zICreditAppTransactionFolder, zICreditReceiptFolder)
-
-        if os.path.exists(zICreditCardTransactionFolder):
-            shutil.move(zICreditCardTransactionFolder, zICreditReceiptFolder)
-
-        if os.path.exists(zICreditCashTransactionFolder):
-            shutil.move(zICreditCashTransactionFolder, zICreditReceiptFolder)
+        move_folder_if_exists(zICreditAppTransactionFolder, zICreditReceiptFolder)
+        move_folder_if_exists(zICreditCardTransactionFolder, zICreditReceiptFolder)
+        move_folder_if_exists(zICreditCashTransactionFolder, zICreditReceiptFolder)
 
         # Moving Zindigi Debit Receipts into Zindigi Debit Receipts Folder
-        if os.path.exists(zIDebitAppTransactionFolder):
-            shutil.move(zIDebitAppTransactionFolder, zIDebitReceiptFolder)
-
-        if os.path.exists(zIDebitCardTransactionFolder):
-            shutil.move(zIDebitCardTransactionFolder, zIDebitReceiptFolder)
-
-        if os.path.exists(zIDebitCashTransactionFolder):
-            shutil.move(zIDebitCashTransactionFolder, zIDebitReceiptFolder)
+        move_folder_if_exists(zIDebitAppTransactionFolder, zIDebitReceiptFolder)
+        move_folder_if_exists(zIDebitCardTransactionFolder, zIDebitReceiptFolder)
+        move_folder_if_exists(zIDebitCashTransactionFolder, zIDebitReceiptFolder)
 
         # Moving Zindigi Receipts into Zindigi Folder
-        if os.path.exists(zICreditReceiptFolder):
-            shutil.move(zICreditReceiptFolder, zindigiReceiptsFolder)
-
-        if os.path.exists(zIDebitReceiptFolder):
-            shutil.move(zIDebitReceiptFolder, zindigiReceiptsFolder)
-
+        move_folder_if_exists(zICreditReceiptFolder, zindgiReceiptsFolder)
+        move_folder_if_exists(zIDebitReceiptFolder, zindgiReceiptsFolder)
 
         # Moving kTrade Dividend Statement & kTrade E Statement & KTrade Trade Confirmation into kTrade Receipts Folder
-        if os.path.exists(kTradeDividendStatementFolder):
-            shutil.move(kTradeDividendStatementFolder, kTradeReceiptFolder)
-
-        if os.path.exists(kTradeEStatementFolder):
-            shutil.move(kTradeEStatementFolder, kTradeReceiptFolder)
-
-        if os.path.exists(kTradeTradeConfirmationFolder):
-            shutil.move(kTradeTradeConfirmationFolder, kTradeReceiptFolder)
+        move_folder_if_exists(kTradeDividendStatementFolder, kTradeReceiptFolder)
+        move_folder_if_exists(kTradeEStatementFolder, kTradeReceiptFolder)
+        move_folder_if_exists(kTradeTradeConfirmationFolder, kTradeReceiptFolder)
 
         # Moving kTrade Receipts & CGT Receipts & CDC Receipts into Trading Receipts Folder
-        if os.path.exists(kTradeReceiptFolder):
-            shutil.move(kTradeReceiptFolder, tradingReceiptsFolder)
-
-        if os.path.exists(cGTReceiptFolder):
-            shutil.move(cGTReceiptFolder, tradingReceiptsFolder)
-
-        if os.path.exists(cDCReceiptFolder):
-            shutil.move(cDCReceiptFolder, tradingReceiptsFolder)
-
-
+        move_folder_if_exists(kTradeReceiptFolder, tradingReceiptsFolder)
+        move_folder_if_exists(cGTReceiptFolder, tradingReceiptsFolder)
+        move_folder_if_exists(cDCReceiptFolder, tradingReceiptsFolder)
 
         # Moving All Bank Folders into Account Receipts Folder
-        if os.path.exists(alliedBankReceiptsFolder):
-            shutil.move(alliedBankReceiptsFolder, accountReceiptsFolder)
-        if os.path.exists(bankAlfalahReceiptsFolder):
-            shutil.move(bankAlfalahReceiptsFolder, accountReceiptsFolder)
-        if os.path.exists(easyPaissaReceiptsFolder):
-            shutil.move(easyPaissaReceiptsFolder, accountReceiptsFolder)
-        if os.path.exists(firstPayReceiptsFolder):
-            shutil.move(firstPayReceiptsFolder, accountReceiptsFolder)
-        if os.path.exists(jazzCashReceiptsFolder):
-            shutil.move(jazzCashReceiptsFolder, accountReceiptsFolder)
-        if os.path.exists(mashreqReceiptsFolder):
-            shutil.move(mashreqReceiptsFolder, accountReceiptsFolder)
-        if os.path.exists(meezanBankReceiptsFolder):
-            shutil.move(meezanBankReceiptsFolder, accountReceiptsFolder)
-        if os.path.exists(nayaPayReceiptsFolder):
-            shutil.move(nayaPayReceiptsFolder, accountReceiptsFolder)
-        if os.path.exists(sadaPayReceiptsFolder):
-            shutil.move(sadaPayReceiptsFolder, accountReceiptsFolder)
-        if os.path.exists(standardCharteredBankReceiptsFolder):
-            shutil.move(standardCharteredBankReceiptsFolder, accountReceiptsFolder)
-        if os.path.exists(uPaisaReceiptsFolder):
-            shutil.move(uPaisaReceiptsFolder, accountReceiptsFolder)
-        if os.path.exists(zindigiReceiptsFolder):
-            shutil.move(zindigiReceiptsFolder, accountReceiptsFolder)
-        if os.path.exists(tradingReceiptsFolder):
-            shutil.move(tradingReceiptsFolder, accountReceiptsFolder)
-
+        move_folder_if_exists(alliedBankReceiptsFolder, accountReceiptsFolder)
+        move_folder_if_exists(bankAlfalahReceiptsFolder, accountReceiptsFolder)
+        move_folder_if_exists(easyPaissaReceiptsFolder, accountReceiptsFolder)
+        move_folder_if_exists(firstPayReceiptsFolder, accountReceiptsFolder)
+        move_folder_if_exists(jazzCashReceiptsFolder, accountReceiptsFolder)
+        move_folder_if_exists(mashreqReceiptsFolder, accountReceiptsFolder)
+        move_folder_if_exists(meezanBankReceiptsFolder, accountReceiptsFolder)
+        move_folder_if_exists(nayaPayReceiptsFolder, accountReceiptsFolder)
+        move_folder_if_exists(sadaPayReceiptsFolder, accountReceiptsFolder)
+        move_folder_if_exists(standardCharteredBankReceiptsFolder, accountReceiptsFolder)
+        move_folder_if_exists(uPaisaReceiptsFolder, accountReceiptsFolder)
+        move_folder_if_exists(zindgiReceiptsFolder, accountReceiptsFolder)
+        move_folder_if_exists(tradingReceiptsFolder, accountReceiptsFolder)
 
         # Moving Gym Receipts Folder into Market Receipts Folder
-        if os.path.exists(gymReceiptsFolder):
-            shutil.move(gymReceiptsFolder, marketReceiptsFolder)
+        move_folder_if_exists(gymReceiptsFolder, marketReceiptsFolder)
 
-        if os.path.exists(accountReceiptsFolder):
-            print(f"Move {accountReceiptsFolder} Folder in {monthReceiptsFolder} Folder")
-            shutil.move(accountReceiptsFolder, monthReceiptsFolder)
-        if os.path.exists(marketReceiptsFolder):
-            print(f"Move {marketReceiptsFolder} Folder in {monthReceiptsFolder} Folder")
-            shutil.move(marketReceiptsFolder, monthReceiptsFolder)
+        print(
+            f"{Constants.MOVE} {accountReceiptsFolder} {Constants.FOLDER} {Constants.IN} {monthReceiptsFolder} {Constants.FOLDER}")
+        move_folder_if_exists(accountReceiptsFolder, monthReceiptsFolder)
 
-        if os.path.exists(monthReceiptsFolder):
-            print(f"Move {monthReceiptsFolder} Folder in {dest_folder} Folder\n")
-            shutil.move(monthReceiptsFolder, dest_folder)
+        print(
+                f"{Constants.MOVE} {marketReceiptsFolder} {Constants.FOLDER} {Constants.IN} {monthReceiptsFolder} {Constants.FOLDER}")
+        move_folder_if_exists(marketReceiptsFolder, monthReceiptsFolder)
+
+        print(
+            f"{Constants.MOVE} {monthReceiptsFolder} {Constants.FOLDER} {Constants.IN} {dest_folder} {Constants.FOLDER}\n")
+        move_folder_if_exists(monthReceiptsFolder, dest_folder)
 
     return dest_folder
-
