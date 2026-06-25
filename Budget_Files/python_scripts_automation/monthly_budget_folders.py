@@ -40,8 +40,8 @@ def generate_monthly_budget_folders(year):
         folder_number = str(i).zfill(2)
 
         # Creating Monthly Receipts Folder
-        print(f"\n\n{Constants.MONTH} {Constants.RECEIPT} {Constants.FOLDER} {Constants.NAME}:", monthReceiptsFolder)
         monthReceiptsFolder = f"{folder_number}_{Constants.RECEIPTS} {month} {year}"
+        print(f"\n\n{Constants.MONTH} {Constants.RECEIPT} {Constants.FOLDER} {Constants.NAME}:", monthReceiptsFolder)
         ensure_directory_exists(monthReceiptsFolder)
 
         # Creating Market Receipts Folder
@@ -70,6 +70,7 @@ def generate_monthly_budget_folders(year):
                                                                           year)
         uPaisaReceiptsFolder = create_bank_receipts_folder(Constants.U_PAISA, month, year)
         zindgiReceiptsFolder = create_bank_receipts_folder(Constants.ZINDIGI, month, year)
+        raqamiReceiptsFolder = create_bank_receipts_folder(Constants.RAQAMI, month, year)
         tradingReceiptsFolder = create_bank_receipts_folder(Constants.TRADING, month, year)
 
         # Creating Allied Bank Receipt Folders
@@ -108,7 +109,9 @@ def generate_monthly_budget_folders(year):
 
 
         # Creating EasyPaissa Receipt Folder
+        ePCreditCardEStatementFolder = create_named_subfolder("EP Credit Card E Statement", abbreviated_month, year)
         ePCreditReceiptFolder = create_named_subfolder("EP Credit Receipt", abbreviated_month, year)
+        ePDebitCardEStatementFolder = create_named_subfolder("EP Debit Card E Statement", abbreviated_month, year)
         ePDebitReceiptFolder = create_named_subfolder("EP Debit Receipt", abbreviated_month, year)
 
         # Creating EasyPaissa Credit Receipts Folder
@@ -123,7 +126,9 @@ def generate_monthly_budget_folders(year):
 
 
         # Creating FirstPay Receipt Folder
+        fPCreditCardEStatementFolder = create_named_subfolder("FP Credit Card E Statement", abbreviated_month, year)
         fPCreditReceiptFolder = create_named_subfolder("FP Credit Receipt", abbreviated_month, year)
+        fPDebitCardEStatementFolder = create_named_subfolder("FP Debit Card E Statement", abbreviated_month, year)
         fPDebitReceiptFolder = create_named_subfolder("FP Debit Receipt", abbreviated_month, year)
 
         # Creating FirstPay Credit Receipts Folder
@@ -138,7 +143,9 @@ def generate_monthly_budget_folders(year):
 
 
         # Creating JazzCash Receipt Folder
+        jCCreditCardEStatementFolder = create_named_subfolder("JC Credit Card E Statement", abbreviated_month, year)
         jCCreditReceiptFolder = create_named_subfolder("JC Credit Receipt", abbreviated_month, year)
+        jCDebitCardEStatementFolder = create_named_subfolder("JC Debit Card E Statement", abbreviated_month, year)
         jCDebitReceiptFolder = create_named_subfolder("JC Debit Receipt", abbreviated_month, year)
 
         # Creating JazzCash Credit Receipts Folder
@@ -153,7 +160,9 @@ def generate_monthly_budget_folders(year):
 
 
         # Creating Mashreq Receipt Folder
+        mQCreditCardEStatementFolder = create_named_subfolder("MQ Credit Card E Statement", abbreviated_month, year)
         mQCreditReceiptFolder = create_named_subfolder("MQ Credit Receipt", abbreviated_month, year)
+        mQDebitCardEStatementFolder = create_named_subfolder("MQ Debit Card E Statement", abbreviated_month, year)
         mQDebitReceiptFolder = create_named_subfolder("MQ Debit Receipt", abbreviated_month, year)
 
         # Creating Mashreq Credit Receipts Folder
@@ -185,7 +194,9 @@ def generate_monthly_budget_folders(year):
 
 
         # Creating NayaPay Receipt Folder
+        nPCreditCardEStatementFolder = create_named_subfolder("NP Credit Card E Statement", abbreviated_month, year)
         nPCreditReceiptFolder = create_named_subfolder("NP Credit Receipt", abbreviated_month, year)
+        nPDebitCardEStatementFolder = create_named_subfolder("NP Debit Card E Statement", abbreviated_month, year)
         nPDebitReceiptFolder = create_named_subfolder("NP Debit Receipt", abbreviated_month, year)
 
         # Creating NayaPay Credit Receipts Folder
@@ -200,7 +211,9 @@ def generate_monthly_budget_folders(year):
 
 
         # Creating SadaPay Receipt Folder
+        sPCreditCardEStatementFolder = create_named_subfolder("SP Credit Card E Statement", abbreviated_month, year)
         sPCreditReceiptFolder = create_named_subfolder("SP Credit Receipt", abbreviated_month, year)
+        sPDebitCardEStatementFolder = create_named_subfolder("SP Debit Card E Statement", abbreviated_month, year)
         sPDebitReceiptFolder = create_named_subfolder("SP Debit Receipt", abbreviated_month, year)
 
         # Creating SadaPay Credit Receipts Folder
@@ -232,7 +245,9 @@ def generate_monthly_budget_folders(year):
 
 
         # Creating Upaisa Receipt Folder
+        uPCreditCardEStatementFolder = create_named_subfolder("UP Credit Card E Statement", abbreviated_month, year)
         uPCreditReceiptFolder = create_named_subfolder("UP Credit Receipt", abbreviated_month, year)
+        uPDebitCardEStatementFolder = create_named_subfolder("UP Debit Card E Statement", abbreviated_month, year)
         uPDebitReceiptFolder = create_named_subfolder("UP Debit Receipt", abbreviated_month, year)
 
         # Creating Upaisa Credit Receipts Folder
@@ -247,7 +262,9 @@ def generate_monthly_budget_folders(year):
 
 
         # Creating Zindigi Receipt Folder
+        zICreditCardEStatementFolder = create_named_subfolder("ZI Credit Card E Statement", abbreviated_month, year)
         zICreditReceiptFolder = create_named_subfolder("ZI Credit Receipt", abbreviated_month, year)
+        zIDebitCardEStatementFolder = create_named_subfolder("ZI Debit Card E Statement", abbreviated_month, year)
         zIDebitReceiptFolder = create_named_subfolder("ZI Debit Receipt", abbreviated_month, year)
 
         # Creating Zindigi Credit Receipts Folder
@@ -259,6 +276,23 @@ def generate_monthly_budget_folders(year):
         zIDebitAppTransactionFolder = create_named_subfolder("ZI Debit App Transaction", abbreviated_month, year)
         zIDebitCardTransactionFolder = create_named_subfolder("ZI Debit Card Transaction", abbreviated_month, year)
         zIDebitCashTransactionFolder = create_named_subfolder("ZI Debit Cash Transaction", abbreviated_month, year)
+
+
+        # Creating Raqami Receipt Folder
+        rQCreditCardEStatementFolder = create_named_subfolder("RQ Credit Card E Statement", abbreviated_month, year)
+        rQCreditReceiptFolder = create_named_subfolder("RQ Credit Receipt", abbreviated_month, year)
+        rQDebitCardEStatementFolder = create_named_subfolder("RQ Debit Card E Statement", abbreviated_month, year)
+        rQDebitReceiptFolder = create_named_subfolder("RQ Debit Receipt", abbreviated_month, year)
+
+        # Creating Raqami Credit Receipts Folder
+        rQCreditAppTransactionFolder = create_named_subfolder("RQ Credit App Transaction", abbreviated_month, year)
+        rQCreditCardTransactionFolder = create_named_subfolder("RQ Credit Card Transaction", abbreviated_month, year)
+        rQCreditCashTransactionFolder = create_named_subfolder("RQ Credit Cash Transaction", abbreviated_month, year)
+
+        # Creating Raqami Debit Receipts Folder
+        rQDebitAppTransactionFolder = create_named_subfolder("RQ Debit App Transaction", abbreviated_month, year)
+        rQDebitCardTransactionFolder = create_named_subfolder("RQ Debit Card Transaction", abbreviated_month, year)
+        rQDebitCashTransactionFolder = create_named_subfolder("RQ Debit Cash Transaction", abbreviated_month, year)
 
 
         # Creating Trading Receipt Folder
@@ -288,6 +322,7 @@ def generate_monthly_budget_folders(year):
         move_folder_if_exists(aBDebitCardEStatementFolder, alliedBankReceiptsFolder)
         move_folder_if_exists(aBDebitReceiptFolder, alliedBankReceiptsFolder)
 
+
         # Moving Bank Alfalah Credit Receipts into Bank Alfalah Credit Receipts Folder
         move_folder_if_exists(bACreditAppTransactionFolder, bACreditReceiptFolder)
         move_folder_if_exists(bACreditCardTransactionFolder, bACreditReceiptFolder)
@@ -305,6 +340,7 @@ def generate_monthly_budget_folders(year):
         move_folder_if_exists(bADebitReceiptFolder, bankAlfalahReceiptsFolder)
         move_folder_if_exists(bAOrbitStatementFolder, bankAlfalahReceiptsFolder)
 
+
         # Moving EasyPaissa Credit Receipts into EasyPaissa Credit Receipts Folder
         move_folder_if_exists(ePCreditAppTransactionFolder, ePCreditReceiptFolder)
         move_folder_if_exists(ePCreditCardTransactionFolder, ePCreditReceiptFolder)
@@ -316,8 +352,11 @@ def generate_monthly_budget_folders(year):
         move_folder_if_exists(ePDebitCashTransactionFolder, ePDebitReceiptFolder)
 
         # Moving EasyPaissa Receipts into EasyPaissa Folder
+        move_folder_if_exists(ePCreditCardEStatementFolder, easyPaissaReceiptsFolder)
         move_folder_if_exists(ePCreditReceiptFolder, easyPaissaReceiptsFolder)
+        move_folder_if_exists(ePDebitCardEStatementFolder, easyPaissaReceiptsFolder)
         move_folder_if_exists(ePDebitReceiptFolder, easyPaissaReceiptsFolder)
+
 
         # Moving FirstPay Credit Receipts into FirstPay Credit Receipts Folder
         move_folder_if_exists(fPCreditAppTransactionFolder, fPCreditReceiptFolder)
@@ -330,8 +369,11 @@ def generate_monthly_budget_folders(year):
         move_folder_if_exists(fPDebitCashTransactionFolder, fPDebitReceiptFolder)
 
         # Moving FirstPay Receipts into FirstPay Folder
+        move_folder_if_exists(fPCreditCardEStatementFolder, firstPayReceiptsFolder)
         move_folder_if_exists(fPCreditReceiptFolder, firstPayReceiptsFolder)
+        move_folder_if_exists(fPDebitCardEStatementFolder, firstPayReceiptsFolder)
         move_folder_if_exists(fPDebitReceiptFolder, firstPayReceiptsFolder)
+
 
         # Moving JazzCash Credit Receipts into JazzCash Credit Receipts Folder
         move_folder_if_exists(jCCreditAppTransactionFolder, jCCreditReceiptFolder)
@@ -344,8 +386,11 @@ def generate_monthly_budget_folders(year):
         move_folder_if_exists(jCDebitCashTransactionFolder, jCDebitReceiptFolder)
 
         # Moving JazzCash Receipts into JazzCash Folder
+        move_folder_if_exists(jCCreditCardEStatementFolder, jazzCashReceiptsFolder)
         move_folder_if_exists(jCCreditReceiptFolder, jazzCashReceiptsFolder)
+        move_folder_if_exists(jCDebitCardEStatementFolder, jazzCashReceiptsFolder)
         move_folder_if_exists(jCDebitReceiptFolder, jazzCashReceiptsFolder)
+
 
         # Moving Mashreq Credit Receipts into Mashreq Credit Receipts Folder
         move_folder_if_exists(mQCreditAppTransactionFolder, mQCreditReceiptFolder)
@@ -358,8 +403,11 @@ def generate_monthly_budget_folders(year):
         move_folder_if_exists(mQDebitCashTransactionFolder, mQDebitReceiptFolder)
 
         # Moving Mashreq Receipts into Mashreq Folder
+        move_folder_if_exists(mQCreditCardEStatementFolder, mashreqReceiptsFolder)
         move_folder_if_exists(mQCreditReceiptFolder, mashreqReceiptsFolder)
+        move_folder_if_exists(mQDebitCardEStatementFolder, mashreqReceiptsFolder)
         move_folder_if_exists(mQDebitReceiptFolder, mashreqReceiptsFolder)
+
 
         # Moving Meezan Bank Credit Receipts into Meezan Bank Credit Receipts Folder
         move_folder_if_exists(mBCreditAppTransactionFolder, mBCreditReceiptFolder)
@@ -377,6 +425,7 @@ def generate_monthly_budget_folders(year):
         move_folder_if_exists(mBDebitCardEStatementFolder, meezanBankReceiptsFolder)
         move_folder_if_exists(mBDebitReceiptFolder, meezanBankReceiptsFolder)
 
+
         # Moving NayaPay Credit Receipts into NayaPay Credit Receipts Folder
         move_folder_if_exists(nPCreditAppTransactionFolder, nPCreditReceiptFolder)
         move_folder_if_exists(nPCreditCardTransactionFolder, nPCreditReceiptFolder)
@@ -388,8 +437,11 @@ def generate_monthly_budget_folders(year):
         move_folder_if_exists(nPDebitCashTransactionFolder, nPDebitReceiptFolder)
 
         # Moving NayaPay Receipts into NayaPay Folder
+        move_folder_if_exists(nPCreditCardEStatementFolder, nayaPayReceiptsFolder)
         move_folder_if_exists(nPCreditReceiptFolder, nayaPayReceiptsFolder)
+        move_folder_if_exists(nPDebitCardEStatementFolder, nayaPayReceiptsFolder)
         move_folder_if_exists(nPDebitReceiptFolder, nayaPayReceiptsFolder)
+
 
         # Moving SadaPay Credit Receipts into SadaPay Credit Receipts Folder
         move_folder_if_exists(sPCreditAppTransactionFolder, sPCreditReceiptFolder)
@@ -402,8 +454,11 @@ def generate_monthly_budget_folders(year):
         move_folder_if_exists(sPDebitCashTransactionFolder, sPDebitReceiptFolder)
 
         # Moving SadaPay Receipts into SadaPay Folder
+        move_folder_if_exists(sPCreditCardEStatementFolder, sadaPayReceiptsFolder)
         move_folder_if_exists(sPCreditReceiptFolder, sadaPayReceiptsFolder)
+        move_folder_if_exists(sPDebitCardEStatementFolder, sadaPayReceiptsFolder)
         move_folder_if_exists(sPDebitReceiptFolder, sadaPayReceiptsFolder)
+
 
         # Moving Standard Chartered Bank Credit Receipts into Standard Chartered Bank Credit Receipts Folder
         move_folder_if_exists(sCBCreditAppTransactionFolder, sCBCreditReceiptFolder)
@@ -421,6 +476,7 @@ def generate_monthly_budget_folders(year):
         move_folder_if_exists(sCBDebitCardEStatementFolder, standardCharteredBankReceiptsFolder)
         move_folder_if_exists(sCBDebitReceiptFolder, standardCharteredBankReceiptsFolder)
 
+
         # Moving Upaisa Credit Receipts into Upaisa Credit Receipts Folder
         move_folder_if_exists(uPCreditAppTransactionFolder, uPCreditReceiptFolder)
         move_folder_if_exists(uPCreditCardTransactionFolder, uPCreditReceiptFolder)
@@ -432,8 +488,11 @@ def generate_monthly_budget_folders(year):
         move_folder_if_exists(uPDebitCashTransactionFolder, uPDebitReceiptFolder)
 
         # Moving Upaisa Receipts into Upaisa Folder
+        move_folder_if_exists(uPCreditCardEStatementFolder, uPaisaReceiptsFolder)
         move_folder_if_exists(uPCreditReceiptFolder, uPaisaReceiptsFolder)
+        move_folder_if_exists(uPDebitCardEStatementFolder, uPaisaReceiptsFolder)
         move_folder_if_exists(uPDebitReceiptFolder, uPaisaReceiptsFolder)
+
 
         # Moving Zindigi Credit Receipts into Zindigi Credit Receipts Folder
         move_folder_if_exists(zICreditAppTransactionFolder, zICreditReceiptFolder)
@@ -446,8 +505,28 @@ def generate_monthly_budget_folders(year):
         move_folder_if_exists(zIDebitCashTransactionFolder, zIDebitReceiptFolder)
 
         # Moving Zindigi Receipts into Zindigi Folder
+        move_folder_if_exists(zICreditCardEStatementFolder, zindgiReceiptsFolder)
         move_folder_if_exists(zICreditReceiptFolder, zindgiReceiptsFolder)
+        move_folder_if_exists(zIDebitCardEStatementFolder, zindgiReceiptsFolder)
         move_folder_if_exists(zIDebitReceiptFolder, zindgiReceiptsFolder)
+
+
+        # Moving Raqami Credit Receipts into Raqami Credit Receipts Folder
+        move_folder_if_exists(rQCreditAppTransactionFolder, rQCreditReceiptFolder)
+        move_folder_if_exists(rQCreditCardTransactionFolder, rQCreditReceiptFolder)
+        move_folder_if_exists(rQCreditCashTransactionFolder, rQCreditReceiptFolder)
+
+        # Moving Raqami Debit Receipts into Raqami Debit Receipts Folder
+        move_folder_if_exists(rQDebitAppTransactionFolder, rQDebitReceiptFolder)
+        move_folder_if_exists(rQDebitCardTransactionFolder, rQDebitReceiptFolder)
+        move_folder_if_exists(rQDebitCashTransactionFolder, rQDebitReceiptFolder)
+
+        # Moving Raqami Receipts into Raqami Folder
+        move_folder_if_exists(rQCreditCardEStatementFolder, raqamiReceiptsFolder)
+        move_folder_if_exists(rQCreditReceiptFolder, raqamiReceiptsFolder)
+        move_folder_if_exists(rQDebitCardEStatementFolder, raqamiReceiptsFolder)
+        move_folder_if_exists(rQDebitReceiptFolder, raqamiReceiptsFolder)
+
 
         # Moving kTrade Dividend Statement & kTrade E Statement & KTrade Trade Confirmation into kTrade Receipts Folder
         move_folder_if_exists(kTradeDividendStatementFolder, kTradeReceiptFolder)
@@ -458,6 +537,7 @@ def generate_monthly_budget_folders(year):
         move_folder_if_exists(kTradeReceiptFolder, tradingReceiptsFolder)
         move_folder_if_exists(cGTReceiptFolder, tradingReceiptsFolder)
         move_folder_if_exists(cDCReceiptFolder, tradingReceiptsFolder)
+
 
         # Moving All Bank Folders into Account Receipts Folder
         move_folder_if_exists(alliedBankReceiptsFolder, accountReceiptsFolder)
@@ -472,6 +552,7 @@ def generate_monthly_budget_folders(year):
         move_folder_if_exists(standardCharteredBankReceiptsFolder, accountReceiptsFolder)
         move_folder_if_exists(uPaisaReceiptsFolder, accountReceiptsFolder)
         move_folder_if_exists(zindgiReceiptsFolder, accountReceiptsFolder)
+        move_folder_if_exists(raqamiReceiptsFolder, accountReceiptsFolder)
         move_folder_if_exists(tradingReceiptsFolder, accountReceiptsFolder)
 
         # Moving Gym Receipts Folder into Market Receipts Folder
