@@ -1,0 +1,5 @@
+.idea/
+.DS_Store
+__pycache__/
+*.pyc
+Budget_Files/python_scripts_automation/folder_structure.txt
