@@ -1,18 +1,27 @@
 import os
 import shutil
 from python_scripts_automation import monthly_budget_folders
+from python_scripts_automation.Constants import Constants
 
-year = 2026
-main_folder = f"Records {year}"
+# Ask for years
+years_input = input(f"{Constants.ENTER} {Constants.THE} {Constants.YEARS} {Constants.YOU} {Constants.WANT} {Constants.TO} {Constants.GENERATE} {Constants.FOLDERS} {Constants.FOR} ({Constants.SEPARATED} {Constants.BY} {Constants.COMMA}, {Constants.EG} {Constants.TWENTY_TWENTY_FIVE}{Constants.COMMA} {Constants.TWENTY_TWENTY_SIX}): ")
+years = [y.strip() for y in years_input.split(",")]
 
-# Check if the directory exists
-if os.path.exists(main_folder):
-    # Remove the directory
-    shutil.rmtree(main_folder)
+root_records_folder = Constants.RECORDS
+if not os.path.exists(root_records_folder):
+    os.makedirs(root_records_folder)
 
-receipts_folders = monthly_budget_folders.generate_monthly_budget_folders(year)
-os.makedirs(main_folder)
+for year in years:
+    main_folder = os.path.join(root_records_folder, f"{Constants.RECORDS} {year}")
 
-shutil.move(receipts_folders, main_folder)
+    # Check if the directory exists
+    if os.path.exists(main_folder):
+        # Remove the directory
+        shutil.rmtree(main_folder)
+
+    receipts_folders = monthly_budget_folders.generate_monthly_budget_folders(year)
+    os.makedirs(main_folder)
+
+    shutil.move(receipts_folders, main_folder)
 
 
