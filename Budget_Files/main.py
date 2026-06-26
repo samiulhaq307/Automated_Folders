@@ -1,9 +1,10 @@
 import os
 import shutil
 from python_scripts_automation import monthly_budget_folders
+from python_scripts_automation.Constants import Constants
 
 year = 2026
-main_folder = f"Records {year}"
+main_folder = f"{Constants.RECORDS} {year}"
 
 # Check if the directory exists
 if os.path.exists(main_folder):
