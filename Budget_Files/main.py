@@ -1,7 +1,23 @@
 import os
 import shutil
+import unittest
+import sys
 from python_scripts_automation import monthly_budget_folders
 from python_scripts_automation.Constants import Constants
+
+def run_tests():
+    print("Running tests...")
+    loader = unittest.TestLoader()
+    suite = loader.discover('tests')
+    runner = unittest.TextTestRunner(verbosity=1)
+    result = runner.run(suite)
+    if not result.wasSuccessful():
+        print("Tests failed. Exiting.")
+        sys.exit(1)
+    print("Tests passed.\n")
+
+# Run tests
+run_tests()
 
 # Ask for years
 years_input = input(f"{Constants.ENTER} {Constants.THE} {Constants.YEARS} {Constants.YOU} {Constants.WANT} {Constants.TO} {Constants.GENERATE} {Constants.FOLDERS} {Constants.FOR} ({Constants.SEPARATED} {Constants.BY} {Constants.COMMA}, {Constants.EG} {Constants.TWENTY_TWENTY_FIVE}{Constants.COMMA} {Constants.TWENTY_TWENTY_SIX}): ")
