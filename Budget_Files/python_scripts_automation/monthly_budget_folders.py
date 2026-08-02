@@ -43,7 +43,7 @@ def generate_monthly_budget_folders(year):
         alliedBankReceiptsFolder = manager.create_bank_receipts_folder(Constants.ALLIED_BANK, month)
         bankAlfalahReceiptsFolder = manager.create_bank_receipts_folder(Constants.BANK_ALFALAH, month)
         easyPaissaReceiptsFolder = manager.create_bank_receipts_folder(Constants.EASY_PAISSA, month)
-        firstPayReceiptsFolder = manager.create_bank_receipts_folder(Constants.HBL_MICROFINANCE, month)
+        hblMicroFinanceReceiptsFolder = manager.create_bank_receipts_folder(Constants.HBL_MICROFINANCE, month)
         jazzCashReceiptsFolder = manager.create_bank_receipts_folder(Constants.JAZZ_CASH, month)
         mashreqReceiptsFolder = manager.create_bank_receipts_folder(Constants.MASHREQ_BANK, month)
         meezanBankReceiptsFolder = manager.create_bank_receipts_folder(Constants.MEEZAN_BANK, month)
@@ -65,7 +65,7 @@ def generate_monthly_budget_folders(year):
         logger.info(f"{Constants.STERIC} {Constants.EASY_PAISSA} {Constants.STERIC}")
         manager.setup_bank_folders(Constants.EASY_PAISSA_ABBREVIATION, easyPaissaReceiptsFolder, abbreviated_month)
         logger.info(f"{Constants.STERIC} {Constants.HBL_MICROFINANCE} {Constants.STERIC}")
-        manager.setup_bank_folders(Constants.HBL_MICROFINANCE_ABBREVIATION, firstPayReceiptsFolder, abbreviated_month)
+        manager.setup_bank_folders(Constants.HBL_MICROFINANCE_ABBREVIATION, hblMicroFinanceReceiptsFolder, abbreviated_month)
         logger.info(f"{Constants.STERIC} {Constants.JAZZ_CASH} {Constants.STERIC}")
         manager.setup_bank_folders(Constants.JAZZ_CASH_ABBREVIATION, jazzCashReceiptsFolder, abbreviated_month)
         logger.info(f"{Constants.STERIC} {Constants.MASHREQ_BANK} {Constants.STERIC}")
@@ -94,6 +94,7 @@ def generate_monthly_budget_folders(year):
         cDCReceiptFolder = BudgetFolderManager.create_named_subfolder(f"{Constants.CDC} {Constants.RECEIPT}", abbreviated_month, year)
         cGTReceiptFolder = BudgetFolderManager.create_named_subfolder(f"{Constants.CGT} {Constants.RECEIPT}", abbreviated_month, year)
         kTradeReceiptFolder = BudgetFolderManager.create_named_subfolder(f"{Constants.KTRADE} {Constants.RECEIPT}", abbreviated_month, year)
+        pakQatarTakafulReceiptFolder = BudgetFolderManager.create_named_subfolder(f"{Constants.PAK_QATAR_TAKAFUL} {Constants.RECEIPT}", abbreviated_month, year)
 
         # Creating KTrade Receipt Folder
         kTradeDividendStatementFolder = BudgetFolderManager.create_named_subfolder(f"{Constants.KTRADE} {Constants.DIVIDEND} {Constants.STATEMENT}", abbreviated_month, year)
@@ -105,17 +106,18 @@ def generate_monthly_budget_folders(year):
         FileSystemManager.move_folder_if_exists(kTradeEStatementFolder, kTradeReceiptFolder)
         FileSystemManager.move_folder_if_exists(kTradeTradeConfirmationFolder, kTradeReceiptFolder)
 
-        # Moving kTrade Receipts & CGT Receipts & CDC Receipts into Trading Receipts Folder
+        # Moving kTrade Receipts & CGT Receipts & CDC Receipts & Pak Qatar Takaful Receipts into Trading Receipts Folder
         FileSystemManager.move_folder_if_exists(kTradeReceiptFolder, tradingReceiptsFolder)
         FileSystemManager.move_folder_if_exists(cGTReceiptFolder, tradingReceiptsFolder)
         FileSystemManager.move_folder_if_exists(cDCReceiptFolder, tradingReceiptsFolder)
+        FileSystemManager.move_folder_if_exists(pakQatarTakafulReceiptFolder, tradingReceiptsFolder)
 
         # Moving All Bank Folders into Account Receipts Folder
         logger.info(f"{Constants.STERIC} {Constants.MOVE} {Constants.ALL} {Constants.BANK} {Constants.FOLDERS} {Constants.INTO} {Constants.ACCOUNT} {Constants.RECEIPTS} {Constants.FOLDER} {Constants.STERIC}")
         FileSystemManager.move_folder_if_exists(alliedBankReceiptsFolder, accountReceiptsFolder)
         FileSystemManager.move_folder_if_exists(bankAlfalahReceiptsFolder, accountReceiptsFolder)
         FileSystemManager.move_folder_if_exists(easyPaissaReceiptsFolder, accountReceiptsFolder)
-        FileSystemManager.move_folder_if_exists(firstPayReceiptsFolder, accountReceiptsFolder)
+        FileSystemManager.move_folder_if_exists(hblMicroFinanceReceiptsFolder, accountReceiptsFolder)
         FileSystemManager.move_folder_if_exists(jazzCashReceiptsFolder, accountReceiptsFolder)
         FileSystemManager.move_folder_if_exists(mashreqReceiptsFolder, accountReceiptsFolder)
         FileSystemManager.move_folder_if_exists(meezanBankReceiptsFolder, accountReceiptsFolder)

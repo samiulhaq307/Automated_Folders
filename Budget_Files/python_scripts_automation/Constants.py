@@ -92,6 +92,7 @@ class Constants:
     NAYA_PAY = "NayaPay"
     PAYONEER = "Payoneer"
     PAK_QATAR_FINANCE = "Pak Qatar Finance"
+    PAK_QATAR_TAKAFUL = "Pak Qatar Takaful"
     RAQAMI = "Raqami"
     SADA_PAY = "SadaPay"
     STANDARD_CHARTERED_BANK = "Standard Chartered Bank"
